@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12223896, g: 0.09800037, b: 0.13114482, a: 1}
+  m_IndirectSpecularColor: {r: 0.12325438, g: 0.097690426, b: 0.13168845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.45
+  m_fontSize: 35.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1813,7 +1813,7 @@ MonoBehaviour:
     GET AS MUCH POINTS AS POSSIBLE.
 
     TO EARN A POINT YOU SHOULD PUT THE GREEN
-    ROBOT (SHEEP) IN THE GREEN RING. THE PLAYER HWO''S CLOSEST TO THE SHEEP AT THE
+    ROBOT (SHEEP) IN THE GREEN RING. THE PLAYER WHO''S CLOSEST TO THE SHEEP AT THE
     TIME WILL EARN THE POINT. RANDOMLY DURING THE GAME, THE SHEEP WILL TURN IN TO
     A MONSTER THAT CHASES YOU AND IF IT CATCHES YOU, YOU WILL LOSE A POINT. THE GAME
     ENDS IN 2 MINUTES. ENJOOOOOOOOOOOY!'
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.25
+  m_fontSize: 35.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.75
+  m_fontSize: 49.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.4
+  m_fontSize: 37.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.15
+  m_fontSize: 35.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
