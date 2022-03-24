@@ -1526,20 +1526,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3040563576298773591, guid: d44936f6062330e28ab4d37456de1881, type: 3}
   m_PrefabInstance: {fileID: 2115442778}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2115442780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115442779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d07190bba2ba384ab93251a693acffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 1
-  inputKeyboard: 0
 --- !u!114 &2115442781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1556,6 +1542,7 @@ MonoBehaviour:
   players:
   - {fileID: 1564360438}
   - {fileID: 1653094388}
+  isGhost: 0
 --- !u!1001 &2126940426
 PrefabInstance:
   m_ObjectHideFlags: 0
