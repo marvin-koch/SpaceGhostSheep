@@ -25,19 +25,15 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
-
-
         }
         else
         {
             horizontal = Input.GetAxis("HorizontalWASD");
             vertical = Input.GetAxis("VerticalWASD");
-
         }
         steering.linear = new Vector3(horizontal, 0,  vertical) * agent.maxAccel;
         steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
         linear, agent.maxAccel));
-        //implement your code here
         return steering;
     }
 
