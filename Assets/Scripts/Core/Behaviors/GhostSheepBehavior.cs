@@ -6,7 +6,7 @@ public class GhostSheepBehavior : AgentBehaviour
     public GameObject[] players;
     public bool isGhost;
     public void Start(){
-        isGhost = false;
+        becomesSheep();
         float shift = 30.0f;
         for (int i = 0; i < 5; ++i)
         {
@@ -72,10 +72,12 @@ public class GhostSheepBehavior : AgentBehaviour
         void becomesGhost()
     {
         isGhost = true;
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
     }
 
         void becomesSheep()
     {
         isGhost = false;
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
     }
 }
