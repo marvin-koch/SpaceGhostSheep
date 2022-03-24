@@ -9,7 +9,12 @@ public enum InputKeyboard{
 }
 public class MoveWithKeyboardBehavior : AgentBehaviour
 {
-    public InputKeyboard inputKeyboard; 
+    public InputKeyboard inputKeyboard;
+
+    private void Start()
+    {
+        this.gameObject.tag = "Player";
+    }
 
     public override Steering GetSteering()
     {
