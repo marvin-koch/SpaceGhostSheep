@@ -73,11 +73,14 @@ public class GhostSheepBehavior : AgentBehaviour
     {
         isGhost = true;
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
+        this.tag = ("Ghost");
     }
 
         void becomesSheep()
     {
         isGhost = false;
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
+        this.tag = ("Sheep");
+
     }
 }
