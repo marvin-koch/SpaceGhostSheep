@@ -16,10 +16,16 @@ public class RingTrigger : MonoBehaviour
         
     }
      void OnTriggerEnter(Collider other){
-        Debug.Log(other.transform.parent.gameObject.name + " triggers.");
-
-        other.GetComponent<Cellulo>().SetLEDResponseMode(12);
-        other.GetComponent<Cellulo>().SetVisualEffect((long)12,(long) 255, (long)0, (long)0, (long)(12));
+         
+        if (other.transform.parent.gameObject.CompareTag("Sheep")) {
+            Debug.Log(other.transform.parent.gameObject.name + " triggers.");
+            GameObject[] players = other.GetComponentInParent<GhostSheepBehavior>().players;
+            Vector3 sheepPosition = this.gameObject.transform.position;
+            if (Vector3.Distance(players[0].transform.position, sheepPosition) < Vector3.Distance(players[1].transform.position, sheepPosition)) {
+                ++players[0].GetComponent<public_variables>().score;
+            }
+            else {++players[0].GetComponent<public_variables>().score; }
+        }    
         
     }
 }
