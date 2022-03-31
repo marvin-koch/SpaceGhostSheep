@@ -33,14 +33,17 @@ public class Timer : MonoBehaviour
         if (running) {
 
             if (timeRemaining > 0) {
-                timeRemaining -= Time.deltaTime;
+                timeRemaining -= 10*Time.deltaTime;
 
             DisplayTime(timeRemaining);
             }
 
             else {
-                Debug.Log("game over");
-                SceneManager.LoadScene(1);
+                GameObject root = this.transform.parent.gameObject.transform.parent.gameObject;
+                GameObject cellulos = root.transform.GetChild(1).gameObject;
+                Debug.Log("child : " + cellulos.name);
+                global_variables.score1 = cellulos.transform.GetChild(0).gameObject.GetComponent<public_variables>().score;
+                SceneManager.LoadScene(2);
                 running = false;
             }
         }

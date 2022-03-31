@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1619764, g: 0.13053286, b: 0.1710136, a: 1}
+  m_IndirectSpecularColor: {r: 0.107782446, g: 0.08523481, b: 0.11416491, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 514567234}
   - component: {fileID: 514567233}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -803,7 +803,6 @@ Transform:
   - {fileID: 18447701}
   - {fileID: 665666735}
   - {fileID: 1965495135}
-  - {fileID: 1838524413}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -911,6 +910,28 @@ PrefabInstance:
 --- !u!4 &927323289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1300460602924199586, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
+  m_PrefabInstance: {fileID: 927323288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &927323290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1300460603662249421, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
+  m_PrefabInstance: {fileID: 927323288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &927323291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927323290}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461afaab7287ca34190ee42c6dbd1dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &927323293 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1300460603662249420, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
   m_PrefabInstance: {fileID: 927323288}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &928179232
@@ -1569,7 +1590,7 @@ GameObject:
   - component: {fileID: 1838524415}
   - component: {fileID: 1838524414}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Timer Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1587,8 +1608,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 514567232}
-  m_Father: {fileID: 890174921}
-  m_RootOrder: 13
+  m_Father: {fileID: 927323293}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
