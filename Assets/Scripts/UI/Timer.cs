@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /**
 	This class is the implementation of the timer used in the game and how it is handled in it
@@ -8,8 +9,10 @@ public class Timer : MonoBehaviour
 {
     private float initTimerValue;
     private Text timerText;
+    private bool running = true;
+    public float timeRemaining;
     public Slider slider;
-    public float maxMinutes = 5;
+    public float maxMinutes = 1;
     public GameManager gameManager;
 
     public void Awake() {
@@ -18,14 +21,36 @@ public class Timer : MonoBehaviour
 
     // Start is called before the first frame update
     public void Start() {
+        running = true;
+        timeRemaining = maxMinutes * 60;
         timerText = GetComponent<Text>();
-        timerText.text = string.Format("{0:00}:{1:00}", 0, 0);
+        timerText.text = string.Format("Time : {0:00}:{1:00}", 0, 0);
     }
 
     // Update is called once per frame
     public void Update() {
 
-        //IMPLEEMT YOUR CODE HERE
+        if (running) {
+
+            if (timeRemaining > 0) {
+                timeRemaining -= Time.deltaTime;
+
+            DisplayTime(timeRemaining);
+            }
+
+            else {
+                Debug.Log("game over");
+                SceneManager.LoadScene(1);
+                running = false;
+            }
+        }
         
+    }
+
+    void DisplayTime(float timeToDisplay) {
+        timeToDisplay += 1;
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        timerText.text = string.Format("Time : {0:00}:{1:00}", minutes, seconds);
     }
 }
