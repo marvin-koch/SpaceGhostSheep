@@ -22,6 +22,6 @@ public class Menu_functionality : MonoBehaviour
     }
 
     void TaskOnClick(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
