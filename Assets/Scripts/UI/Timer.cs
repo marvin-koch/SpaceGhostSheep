@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     public GameManager gameManager;
 
     public void Awake() {
-        initTimerValue = Time.time; 
+        initTimerValue = Time.time;
     }
 
     // Start is called before the first frame update
@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
         timeRemaining = maxMinutes * 60;
         timerText = GetComponent<Text>();
         timerText.text = string.Format("Time : {0:00}:{1:00}", 0, 0);
+        slider.value = timeRemaining;
     }
 
     // Update is called once per frame
@@ -35,7 +36,8 @@ public class Timer : MonoBehaviour
             if (timeRemaining > 0) {
                 timeRemaining -= Time.deltaTime;
 
-            DisplayTime(timeRemaining);
+                DisplayTime(timeRemaining);
+                slider.value = timeRemaining;
             }
 
             else {
