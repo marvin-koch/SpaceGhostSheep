@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RingTrigger : MonoBehaviour
 {
+    public AudioSource wonPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class RingTrigger : MonoBehaviour
             Vector3 sheepPosition = this.gameObject.transform.position;
             if (Vector3.Distance(players[0].transform.position, sheepPosition) < Vector3.Distance(players[1].transform.position, sheepPosition)) {
                 ++players[0].GetComponent<public_variables>().score;
+                wonPoint.Play();
             }
             else {++players[0].GetComponent<public_variables>().score; }
         }    

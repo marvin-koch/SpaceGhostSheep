@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GhostTrigger : MonoBehaviour
 {
+    public AudioSource lostPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class GhostTrigger : MonoBehaviour
         if (this.gameObject.CompareTag("Ghost") && other.gameObject.CompareTag("Player")) {
             Debug.Log(other.transform.parent.gameObject.name + " collides.");
             --other.gameObject.GetComponent<public_variables>().score;
+            lostPoint.Play();
         }
     }
 }

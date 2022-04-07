@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
         if (running) {
 
             if (timeRemaining > 0) {
-                timeRemaining -= 10*Time.deltaTime;
+                timeRemaining -= Time.deltaTime;
 
             DisplayTime(timeRemaining);
             }
