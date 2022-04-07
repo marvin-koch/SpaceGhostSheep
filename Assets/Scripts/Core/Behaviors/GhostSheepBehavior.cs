@@ -5,8 +5,13 @@ public class GhostSheepBehavior : AgentBehaviour
 {
     public GameObject[] players;
     public bool isGhost;
+
+    public AudioSource sheep;
+    public AudioSource ghost;
+
     public void Start(){
-        becomesSheep();
+        init();
+
         float shift = 30.0f;
         for (int i = 0; i < 5; ++i)
         {
@@ -74,6 +79,7 @@ public class GhostSheepBehavior : AgentBehaviour
         isGhost = true;
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
         this.tag = ("Ghost");
+        ghost.Play();
     }
 
         void becomesSheep()
@@ -81,6 +87,13 @@ public class GhostSheepBehavior : AgentBehaviour
         isGhost = false;
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
         this.tag = ("Sheep");
+        sheep.Play();
+    }
 
+        void init()
+    {
+        isGhost = false;
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
+        this.tag = ("Sheep");
     }
 }
