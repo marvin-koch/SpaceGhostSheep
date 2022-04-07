@@ -9,14 +9,15 @@ public class GhostSheepBehavior : AgentBehaviour
     public AudioSource sheep;
     public AudioSource ghost;
 
-    public void Start(){
-        init();
+    public void Start()
+    {
+        becomesSheep();
 
         float shift = 30.0f;
         for (int i = 0; i < 5; ++i)
         {
-            Invoke("becomesGhost", Random.Range(15.0f + i * shift, 25.0f + i * shift));
-            Invoke("becomesSheep", Random.Range(25.0f + i * shift, 35.0f + i * shift));
+            Invoke("becomesGhost", Random.Range(20.0f + i * shift, 30.0f + i * shift));
+            Invoke("becomesSheep", Random.Range(40.0f + i * shift, 50.0f + i * shift));
         }
     }
     public override Steering GetSteering()
@@ -28,11 +29,13 @@ public class GhostSheepBehavior : AgentBehaviour
         {
             GameObject target = FindClosestEnemy();
             directionOfMovement = target.gameObject.transform.position - this.gameObject.transform.position;
+            directionOfMovement = directionOfMovement / 2;
             //directionOfMovement = directionOfMovement.normalized;
 
-        } else
+        }
+        else
         {
-            
+
             Vector3 posOfThis = this.gameObject.transform.position;
             Vector3 posOfPlayer;
             Vector3 relativeDirection;
@@ -74,7 +77,7 @@ public class GhostSheepBehavior : AgentBehaviour
         return closest;
     }
 
-        void becomesGhost()
+    void becomesGhost()
     {
         isGhost = true;
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
@@ -82,18 +85,11 @@ public class GhostSheepBehavior : AgentBehaviour
         ghost.Play();
     }
 
-        void becomesSheep()
+    void becomesSheep()
     {
         isGhost = false;
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
         this.tag = ("Sheep");
         sheep.Play();
-    }
-
-        void init()
-    {
-        isGhost = false;
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
-        this.tag = ("Sheep");
     }
 }
