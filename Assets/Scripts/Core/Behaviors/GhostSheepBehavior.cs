@@ -10,7 +10,8 @@ public class GhostSheepBehavior : AgentBehaviour
     public AudioSource ghost;
 
     public void Start(){
-        becomesSheep();
+        init();
+
         float shift = 30.0f;
         for (int i = 0; i < 5; ++i)
         {
@@ -87,5 +88,12 @@ public class GhostSheepBehavior : AgentBehaviour
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
         this.tag = ("Sheep");
         sheep.Play();
+    }
+
+        void init()
+    {
+        isGhost = false;
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
+        this.tag = ("Sheep");
     }
 }
