@@ -26,7 +26,11 @@ public class RingTrigger : MonoBehaviour
                 ++players[0].GetComponent<public_variables>().score;
                 wonPoint.Play();
             }
-            else {++players[0].GetComponent<public_variables>().score; }
+            else {
+                ++players[1].GetComponent<public_variables>().score;
+                wonPoint.Play();
+
+            }
         }    
         
     }

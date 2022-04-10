@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     private bool running = true;
     public float timeRemaining;
     public Slider slider;
-    public float maxMinutes = 1;
+    public float maxMinutes = 5;
     public GameManager gameManager;
 
     public void Awake() {
