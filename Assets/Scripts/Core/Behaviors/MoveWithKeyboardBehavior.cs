@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Input Keys
-public enum InputKeyboard{
-    arrows =0, 
-    wasd = 1
-}
+
 public class MoveWithKeyboardBehavior : AgentBehaviour
 {
-    public InputKeyboard inputKeyboard;
-
+    public int player = 0;
+    int input = 0;
     private void Start()
     {
+
         this.gameObject.tag = "Player";
     }
 
     public override Steering GetSteering()
     {
         Steering steering = new Steering();
+        input = (player == 1) ? PlayerSettings.input1 : PlayerSettings.input2;
         float horizontal = 0;
         float vertical = 0;
-        if(inputKeyboard == InputKeyboard.arrows)
+        if(input == 0)
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
