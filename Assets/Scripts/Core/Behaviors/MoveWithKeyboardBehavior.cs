@@ -8,10 +8,28 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
 {
     public int player = 0;
     int input = 0;
+    int colour = 0;
     private void Start()
     {
 
         this.gameObject.tag = "Player";
+
+        colour = player == 2 ? PlayerSettings.colour1 : PlayerSettings.colour2;
+        Color leds = Color.white;
+        if (colour == 0)
+        {
+            leds = Color.blue;
+        }
+        else if (colour == 1)
+        {
+            leds = Color.red;
+        }
+        else
+        {
+            leds = Color.black;
+        }
+
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, leds, 128);
     }
 
     public override Steering GetSteering()
