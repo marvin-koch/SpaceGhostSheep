@@ -54,4 +54,14 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
         return steering;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && this.GetComponent<public_variables>().stealer)
+        {
+            this.GetComponent<public_variables>().score = this.GetComponent<public_variables>().score + 2;
+            collision.gameObject.GetComponent<public_variables>().score = collision.gameObject.GetComponent<public_variables>().score - 2;
+            this.GetComponent<public_variables>().stealer = false;
+            
+        }
+    }
 }
