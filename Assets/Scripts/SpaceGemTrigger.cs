@@ -8,7 +8,7 @@ public class SpaceGemTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.gameObject.tag = "Gem";
+       
     }
 
     // Update is called once per frame
