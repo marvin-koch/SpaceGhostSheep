@@ -14,7 +14,7 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
 
         this.gameObject.tag = "Player";
 
-        colour = player == 2 ? PlayerSettings.colour1 : PlayerSettings.colour2;
+        colour = (player == 2) ? PlayerSettings.colour1 : PlayerSettings.colour2;
         Color leds = Color.white;
         if (colour == 0)
         {
