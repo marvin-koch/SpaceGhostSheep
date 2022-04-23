@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     private float initTimerValue;
     private Text timerText;
     private bool running = true;
-    public float timeRemaining;
+    public static float timeRemaining;
     public Slider slider;
     float maxMinutes = PlayerSettings.time;
     public GameManager gameManager;

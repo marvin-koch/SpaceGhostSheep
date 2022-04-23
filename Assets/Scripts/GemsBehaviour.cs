@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GemsBehaviour : MonoBehaviour
 {
-    public GameObject gem;
+    public GameObject spaceGem;
+    public GameObject timeGem;
     public int maxMinutes = PlayerSettings.time;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 1; i < maxMinutes; ++i)
+
+        for (int i = 0; i < maxMinutes; ++i)
         {
-            Invoke("instantiateGem", 60f * i);
+            Invoke("instantiateSpaceGem", 30f + 60f * i);
+            Invoke("instantiateTimeGem", 60f + 60f * i);
         }
+        
     }
 
     // Update is called once per frame
@@ -21,11 +25,21 @@ public class GemsBehaviour : MonoBehaviour
         
     }
 
-    void instantiateGem()
+    void instantiateSpaceGem()
     {
         float x = Random.Range(1, 27);
         float z = Random.Range(-19, -1);
-        GameObject clone = Instantiate(gem);
+        GameObject clone = Instantiate(spaceGem);
         clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
     }
+
+    void instantiateTimeGem()
+    {
+        float x = Random.Range(1, 27);
+        float z = Random.Range(-19, -1);
+        GameObject clone = Instantiate(timeGem);
+        clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
+    }
+
+
 }

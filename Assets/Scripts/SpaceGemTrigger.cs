@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GemTrigger : MonoBehaviour
+public class SpaceGemTrigger : MonoBehaviour
 {
     public AudioSource gemTaken;
     // Start is called before the first frame update
@@ -23,9 +23,7 @@ public class GemTrigger : MonoBehaviour
         {
             gemTaken.Play();
             other.gameObject.GetComponent<public_variables>().stealer = true;
-            print("Something touched the gem (me)");
             Destroy(this.gameObject);
-            print("Should be destroyed");
         }
     }
 }

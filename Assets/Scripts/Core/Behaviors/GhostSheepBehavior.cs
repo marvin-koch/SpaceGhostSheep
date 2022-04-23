@@ -11,15 +11,18 @@ public class GhostSheepBehavior : AgentBehaviour
 
     public void Start()
     {
+        float startTime = PlayerSettings.time;
         becomesSheep();
 
-        float shift = 30.0f;
-        for (int i = 0; i < 5; ++i)
+        print("starttime : " + (int)startTime / 5);
+
+        float minute = 60.0f;
+        for (int i = 0; i < (int) startTime/5; ++i)
         {
-            Invoke("becomesGhost", Random.Range(20.0f + i * shift, 30.0f + i * shift));
-            Invoke("becomesSheep", Random.Range(40.0f + i * shift, 50.0f + i * shift));
+            Invoke("becomesGhost", Random.Range(35.0f + i * minute, 45.0f + i * minute));
+            Invoke("becomesSheep", Random.Range(55.0f + i * minute, 65.0f + i * minute));
         }
-    }
+    } 
     public override Steering GetSteering()
     {
         Vector3 directionOfMovement = Vector3.zero;
