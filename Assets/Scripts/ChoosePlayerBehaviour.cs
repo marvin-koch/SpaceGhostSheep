@@ -14,12 +14,36 @@ public class ChoosePlayerBehaviour : AgentBehaviour
         bool player2isMouse = !(PlayerSettings.input2 == 0 || PlayerSettings.input2 == 1);
 
         print(player1isMouse);
+        if (!player1isMouse)
+        {
+            player1.AddComponent<MoveWithKeyboardBehavior>();
+            player1.GetComponent<MoveWithKeyboardBehavior>().enabled = true;
 
-        player1.GetComponent<MoveWithKeyboardBehavior>().enabled = !player1isMouse;
-        player2.GetComponent<MoveWithKeyboardBehavior>().enabled = !player2isMouse;
+            player1.GetComponent<MoveWithKeyboardBehavior>().player = 1;
 
-        player1.GetComponent<MoveWithMouseBehavior>().enabled = player1isMouse;
-        player2.GetComponent<MoveWithMouseBehavior>().enabled = player2isMouse;
+
+        }
+        else
+        {
+            player1.AddComponent<MoveWithMouseBehavior>();
+            player1.GetComponent<MoveWithMouseBehavior>().enabled = true;
+
+        }
+
+        if (!player2isMouse)
+        {
+            player2.AddComponent<MoveWithKeyboardBehavior>();
+            player2.GetComponent<MoveWithKeyboardBehavior>().enabled = true;
+
+            player2.GetComponent<MoveWithKeyboardBehavior>().player = 2;
+
+        }
+        else
+        {
+            player2.AddComponent<MoveWithMouseBehavior>();
+            player2.GetComponent<MoveWithMouseBehavior>().enabled = true;
+        }
+
 
     }
 
