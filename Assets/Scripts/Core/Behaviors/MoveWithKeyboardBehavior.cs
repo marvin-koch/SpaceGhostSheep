@@ -6,15 +6,16 @@ using UnityEngine;
 
 public class MoveWithKeyboardBehavior : AgentBehaviour
 {
-    public int player = 0;
-    int input = 0;
-    int colour = 0;
+    public int player;
+    int input = -1;
+    int colour = -1;
+    //public bool activeKey = true;
     private void Start()
     {
 
         this.gameObject.tag = "Player";
 
-        colour = player == 2 ? PlayerSettings.colour1 : PlayerSettings.colour2;
+        colour = (player == 2) ? PlayerSettings.colour1 : PlayerSettings.colour2;
         Color leds = Color.white;
         if (colour == 0)
         {
@@ -35,26 +36,41 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
     public override Steering GetSteering()
     {
         Steering steering = new Steering();
-        if (!Timer.paused)
-        {
-            input = (player == 1) ? PlayerSettings.input1 : PlayerSettings.input2;
-            float horizontal = 0;
-            float vertical = 0;
-            if(input == 0)
+        input = (player == 2) ? PlayerSettings.input1 : PlayerSettings.input2;
+        float horizontal = 0;
+        float vertical = 0;
+        //print(string.Format("Keyboard Player {0} is active : {1}", player, activeKey));
+        //if (input == 0 || input == 1)
+        //{
+            print(string.Format("Keyboard Player {0} input is  : {1}", player, input));
+
+            if (input == 1)
             {
+
+                print("Getting Arrows");
                 horizontal = Input.GetAxis("Horizontal");
                 vertical = Input.GetAxis("Vertical");
+                steering.linear = new Vector3(horizontal, 0, vertical) * agent.maxAccel;
+                steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
+                linear, agent.maxAccel));
             }
-            else
+            else if(input == 0)
             {
+                print("Getting WASD");
                 horizontal = Input.GetAxis("HorizontalWASD");
                 vertical = Input.GetAxis("VerticalWASD");
+                print("Finished WASD");
+                steering.linear = new Vector3(horizontal, 0, vertical) * agent.maxAccel;
+                steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
+                linear, agent.maxAccel));
+            } 
+            else 
+            {
+                
             }
-            steering.linear = new Vector3(horizontal, 0,  vertical) * agent.maxAccel;
-            steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
-            linear, agent.maxAccel));
-        }
-        
+
+        //}
+       
         return steering;
     }
 
