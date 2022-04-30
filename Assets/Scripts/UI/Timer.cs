@@ -15,6 +15,8 @@ public class Timer : MonoBehaviour
     float maxMinutes = PlayerSettings.time;
     public GameManager gameManager;
 
+    public static bool paused = true;
+
     public void Awake() {
         initTimerValue = Time.time;
     }
@@ -24,29 +26,36 @@ public class Timer : MonoBehaviour
         running = true;
         timeRemaining = maxMinutes * 60;
         timerText = GetComponent<Text>();
-        timerText.text = string.Format("Time : {0:00}:{1:00}", 0, 0);
+        DisplayTime(timeRemaining-1); 
+        //timerText.text = string.Format("Time : {0:00}:{1:00}", 0, 0);
         slider.value = timeRemaining;
     }
 
     // Update is called once per frame
     public void Update() {
 
-        if (running) {
+        if (!paused)
+        {
+            if (running)
+            {
 
-            if (timeRemaining > 0) {
-                timeRemaining -= Time.deltaTime;
+                if (timeRemaining > 0)
+                {
+                    timeRemaining -= Time.deltaTime;
 
-                DisplayTime(timeRemaining);
-                slider.value = timeRemaining;
-            }
+                    DisplayTime(timeRemaining);
+                    slider.value = timeRemaining;
+                }
 
-            else {
-                GameObject root = this.transform.parent.gameObject.transform.parent.gameObject;
-                GameObject cellulos = root.transform.GetChild(1).gameObject;
-                Debug.Log("child : " + cellulos.name);
-                global_variables.score1 = cellulos.transform.GetChild(0).gameObject.GetComponent<public_variables>().score;
-                SceneManager.LoadScene(2);
-                running = false;
+                else
+                {
+                    GameObject root = this.transform.parent.gameObject.transform.parent.gameObject;
+                    GameObject cellulos = root.transform.GetChild(1).gameObject;
+                    Debug.Log("child : " + cellulos.name);
+                    global_variables.score1 = cellulos.transform.GetChild(0).gameObject.GetComponent<public_variables>().score;
+                    SceneManager.LoadScene(2);
+                    running = false;
+                }
             }
         }
         

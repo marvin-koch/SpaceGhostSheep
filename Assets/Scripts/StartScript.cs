@@ -7,7 +7,8 @@ public class StartScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;   
+        //Time.timeScale = 0;
+        Timer.paused = true;
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class StartScript : MonoBehaviour
 
     public void start()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        Timer.paused = false;
     }
 }

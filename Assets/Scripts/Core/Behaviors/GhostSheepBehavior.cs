@@ -8,57 +8,64 @@ public class GhostSheepBehavior : AgentBehaviour
 
     public AudioSource sheep;
     public AudioSource ghost;
-
+    private bool hastStarted = true;
     public void Start()
     {
         float startTime = PlayerSettings.time;
         becomesSheep();
+        hastStarted = false;
 
         print("starttime : " + (int)startTime / 5);
 
         float minute = 60.0f;
-        for (int i = 0; i < (int) startTime/5; ++i)
-        {
-            Invoke("becomesGhost", Random.Range(35.0f + i * minute, 45.0f + i * minute));
-            Invoke("becomesSheep", Random.Range(55.0f + i * minute, 65.0f + i * minute));
-        }
-    } 
+        //for (int i = 0; i < (int) startTime/5; ++i)
+        //{
+        //Invoke("becomesGhost", Random.Range(35.0f + i * minute, 45.0f + i * minute));
+        //Invoke("becomesSheep", Random.Range(55.0f + i * minute, 65.0f + i * minute));
+
+        //}
+        InvokeRepeating("becomesGhost", Random.Range(35.0f , 45.0f), minute);
+        InvokeRepeating("becomesSheep", Random.Range(55.0f, 65.0f), minute);
+    }
+
     public override Steering GetSteering()
     {
         Vector3 directionOfMovement = Vector3.zero;
         Steering steering = new Steering();
 
-        if (isGhost)
+        if (!Timer.paused)
         {
-            GameObject target = FindClosestEnemy();
-            directionOfMovement = target.gameObject.transform.position - this.gameObject.transform.position;
-            directionOfMovement = directionOfMovement / 2;
-            //directionOfMovement = directionOfMovement.normalized;
-
-        }
-        else
-        {
-
-            Vector3 posOfThis = this.gameObject.transform.position;
-            Vector3 posOfPlayer;
-            Vector3 relativeDirection;
-
-            foreach (GameObject player in players)
+            if (isGhost)
             {
-                posOfPlayer = player.transform.position;
+                GameObject target = FindClosestEnemy();
+                directionOfMovement = target.gameObject.transform.position - this.gameObject.transform.position;
+                directionOfMovement = directionOfMovement / 2;
+                //directionOfMovement = directionOfMovement.normalized;
 
-                if (Vector3.Distance(posOfPlayer, posOfThis) < 6.0)
+            }
+            else
+            {
+
+                Vector3 posOfThis = this.gameObject.transform.position;
+                Vector3 posOfPlayer;
+                Vector3 relativeDirection;
+
+                foreach (GameObject player in players)
                 {
-                    relativeDirection = posOfThis - posOfPlayer;
-                    directionOfMovement += new Vector3(2 / relativeDirection.x, 0, 2 / relativeDirection.z);
+                    posOfPlayer = player.transform.position;
 
+                    if (Vector3.Distance(posOfPlayer, posOfThis) < 6.0)
+                    {
+                        relativeDirection = posOfThis - posOfPlayer;
+                        directionOfMovement += new Vector3(2 / relativeDirection.x, 0, 2 / relativeDirection.z);
+
+                    }
                 }
             }
+
+            steering.linear = directionOfMovement * agent.maxAccel;
+            steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
         }
-
-        steering.linear = directionOfMovement * agent.maxAccel;
-        steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
-
         return steering;
     }
 
@@ -82,17 +89,27 @@ public class GhostSheepBehavior : AgentBehaviour
 
     void becomesGhost()
     {
-        isGhost = true;
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
-        this.tag = ("Ghost");
-        ghost.Play();
+        if (!Timer.paused || hastStarted)
+        {
+            isGhost = true;
+            this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
+            this.tag = ("Ghost");
+            ghost.Play();
+        }
+        
     }
 
     void becomesSheep()
     {
-        isGhost = false;
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
-        this.tag = ("Sheep");
-        sheep.Play();
+        if (!Timer.paused|| hastStarted)
+        {
+            isGhost = false;
+            this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
+            this.tag = ("Sheep");
+            sheep.Play();
+        }
+        
     }
+
+    
 }

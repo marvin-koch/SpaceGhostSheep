@@ -18,11 +18,13 @@ public class PauseScript : MonoBehaviour
 
     public void pause()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
+        Timer.paused = true;
     }
 
     public void resume()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        Timer.paused = false;
     }
 }

@@ -31,6 +31,20 @@ public class PlayerBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        colour = player == 1 ? PlayerSettings.colour1 : PlayerSettings.colour2;
+        Color leds = Color.white;
+        if (colour == 0)
+        {
+            leds = Color.blue;
+        }
+        else if (colour == 1)
+        {
+            leds = Color.red;
+        }
+        else
+        {
+            leds = Color.black;
+        }
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, leds, 128);
     }
 }
