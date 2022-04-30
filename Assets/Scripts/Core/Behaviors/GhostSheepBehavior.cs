@@ -96,6 +96,13 @@ public class GhostSheepBehavior : AgentBehaviour
             this.tag = ("Ghost");
             ghost.Play();
         }
+
+        //real cellulo are hard to move
+        foreach (GameObject player in players) {
+            player.GetComponent<CelluloAgentRigidBody>().SetCasualBackdriveAssistEnabled(false);
+            player.GetComponent<CelluloAgentRigidBody>().MoveOnStone();
+
+        }
         
     }
 
@@ -107,6 +114,11 @@ public class GhostSheepBehavior : AgentBehaviour
             this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
             this.tag = ("Sheep");
             sheep.Play();
+        }
+
+        //real cellulo are easy to move
+        foreach (GameObject player in players) {
+            player.GetComponent<CelluloAgentRigidBody>().SetCasualBackdriveAssistEnabled(true);
         }
         
     }

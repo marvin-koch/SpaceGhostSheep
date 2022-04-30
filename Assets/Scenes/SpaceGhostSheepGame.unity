@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.04898402, g: 0.03626274, b: 0.052423656, a: 1}
+  m_IndirectSpecularColor: {r: 0.04899487, g: 0.036266726, b: 0.052453585, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2177,11 +2177,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461afaab7287ca34190ee42c6dbd1dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &927323292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1300460602924199587, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
+  m_PrefabInstance: {fileID: 927323288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &927323293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1300460603662249420, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
   m_PrefabInstance: {fileID: 927323288}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &927323294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927323292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 200a73c5712801a43ab30011d134cb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startButton: {fileID: 121368635}
+  players:
+  - {fileID: 1564360438}
+  - {fileID: 1653094388}
 --- !u!1001 &928179232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4239,6 +4260,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   player: 2
+--- !u!114 &1564360441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564360438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f689076b73d9a4cb2b8a678b3fcfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  long_pressing: 0
 --- !u!1001 &1579898752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4543,6 +4578,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   player: 1
+--- !u!114 &1653094391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653094388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f689076b73d9a4cb2b8a678b3fcfff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  long_pressing: 0
 --- !u!1001 &1654563490
 PrefabInstance:
   m_ObjectHideFlags: 0
