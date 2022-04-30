@@ -32,6 +32,7 @@ public class ScanPanel : MonoBehaviour
     void Start()
     {
         _scanner = new Scanner();
+        Debug.Log(_scanner);
     }
 
 	/// <summary>
@@ -39,6 +40,8 @@ public class ScanPanel : MonoBehaviour
 	/// </summary>
     void Update()
     {
+        Debug.Log(_scanner);
+
         if (_scanner.isScanning)
         {
             refreshTimer -= Time.deltaTime;

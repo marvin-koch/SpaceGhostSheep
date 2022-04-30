@@ -4225,6 +4225,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   stealer: 0
+--- !u!114 &1564360440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564360438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e044db1f30a24bb791e649a0062e393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  player: 2
 --- !u!1001 &1579898752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4515,6 +4529,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   stealer: 0
+--- !u!114 &1653094390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653094388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e044db1f30a24bb791e649a0062e393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  player: 1
 --- !u!1001 &1654563490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4988,7 +5016,6 @@ GameObject:
   - component: {fileID: 1838524418}
   - component: {fileID: 1838524419}
   - component: {fileID: 1838524420}
-  - component: {fileID: 1838524421}
   m_Layer: 5
   m_Name: Timer Canvas
   m_TagString: Untagged
@@ -5131,21 +5158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733ee98642f954d33942f7bb4510f387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1838524421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838524412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb87d0c967e8445d29b11c334ff91dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 1
-  player1: {fileID: 1653094388}
-  player2: {fileID: 1564360438}
 --- !u!1 &1849810355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,7 +5866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4804574212970481870, guid: d44936f6062330e28ab4d37456de1881, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6553765980520163236, guid: d44936f6062330e28ab4d37456de1881, type: 3}
       propertyPath: m_UseGravity

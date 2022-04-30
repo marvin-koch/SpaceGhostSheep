@@ -5,11 +5,16 @@ using System;
 
 public class PlayerSettings : MonoBehaviour
 {
+    // input = 
+    // 0 -> WASD
+    // 1 -> ARROWS
+    // 2 -> MOUSE
     public static int input1 = 0;
     public static int input2 = 1;
     public static int time = 5;
     public static int colour1 = 0;
     public static int colour2 = 1;
+
     // Start is called before the first frame update
     void Start()
     {
