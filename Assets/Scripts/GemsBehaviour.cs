@@ -11,11 +11,12 @@ public class GemsBehaviour : MonoBehaviour
     void Start()
     {
 
-        for (int i = 0; i < maxMinutes; ++i)
-        {
-            Invoke("instantiateSpaceGem", 30f + 60f * i);
-            Invoke("instantiateTimeGem", 60f + 60f * i);
-        }
+        //for (int i = 0; i < maxMinutes; ++i)
+        //{
+        
+        InvokeRepeating("instantiateSpaceGem", 30f,60f);
+        InvokeRepeating("instantiateTimeGem", 60f , 60f);
+        //}
         
     }
 
@@ -27,19 +28,26 @@ public class GemsBehaviour : MonoBehaviour
 
     void instantiateSpaceGem()
     {
-        float x = Random.Range(1, 27);
-        float z = Random.Range(-19, -1);
-        GameObject clone = Instantiate(spaceGem);
-        clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
+        if (!Timer.paused)
+        { 
+            float x = Random.Range(1, 27);
+            float z = Random.Range(-19, -1);
+            GameObject clone = Instantiate(spaceGem);
+            clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
+        }
     }
 
     void instantiateTimeGem()
     {
-        float x = Random.Range(1, 27);
-        float z = Random.Range(-19, -1);
-        GameObject clone = Instantiate(timeGem);
-        clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
+        if (!Timer.paused)
+        {
+            float x = Random.Range(1, 27);
+            float z = Random.Range(-19, -1);
+            GameObject clone = Instantiate(timeGem);
+            clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
+        }    
     }
+
 
 
 }

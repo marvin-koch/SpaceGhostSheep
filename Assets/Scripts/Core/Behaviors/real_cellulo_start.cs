@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseScript : MonoBehaviour
+
+public class real_cellulo_start : AgentBehaviour
 {
+    public bool long_pressing;
     // Start is called before the first frame update
     void Start()
     {
-        
+        long_pressing = false;
     }
 
     // Update is called once per frame
@@ -16,15 +18,8 @@ public class PauseScript : MonoBehaviour
         
     }
 
-    public void pause()
-    {
-        //Time.timeScale = 0;
-        Timer.paused = true;
+    public override void OnCelluloLongTouch(int key){
+        long_pressing = true;
     }
 
-    public void resume()
-    {
-        //Time.timeScale = 1;
-        Timer.paused = false;
-    }
 }
