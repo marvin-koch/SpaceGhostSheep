@@ -15,8 +15,6 @@ public class GhostSheepBehavior : AgentBehaviour
         becomesSheep();
         hastStarted = false;
 
-        print("starttime : " + (int)startTime / 5);
-
         float minute = 60.0f;
         //for (int i = 0; i < (int) startTime/5; ++i)
         //{
