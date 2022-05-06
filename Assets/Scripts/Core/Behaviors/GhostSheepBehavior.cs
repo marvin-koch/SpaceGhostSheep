@@ -9,9 +9,11 @@ public class GhostSheepBehavior : AgentBehaviour
     public AudioSource sheep;
     public AudioSource ghost;
     private bool hastStarted = true;
+    private bool alreadyConnected = false;
     public void Start()
     {
         float startTime = PlayerSettings.time;
+        hastStarted = true;
         becomesSheep();
         hastStarted = false;
 
@@ -24,6 +26,27 @@ public class GhostSheepBehavior : AgentBehaviour
         //}
         InvokeRepeating("becomesGhost", Random.Range(35.0f , 45.0f), minute);
         InvokeRepeating("becomesSheep", Random.Range(55.0f, 65.0f), minute);
+    }
+
+    public void Update()
+    {   
+        if (this.agent.isConnected && !alreadyConnected)
+        {
+            Start();
+            alreadyConnected = true;
+        }
+        
+        
+        /*
+        if (isGhost)
+        {
+            this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 128);
+        } 
+        else
+        {
+            this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
+        }
+        */
     }
 
     public override Steering GetSteering()
@@ -64,6 +87,7 @@ public class GhostSheepBehavior : AgentBehaviour
             steering.linear = directionOfMovement * agent.maxAccel;
             steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
         }
+        print("Ciao je suis executé");
         return steering;
     }
 
