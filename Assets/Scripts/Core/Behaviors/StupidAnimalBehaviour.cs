@@ -93,7 +93,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
     {
         float o1d = Vector3.Distance(this.gameObject.transform.position, o1.transform.position);
         float o2d = Vector3.Distance(this.gameObject.transform.position, o2.transform.position);
-        return o1d > o2d ? o2d : o1d; 
+        return o1d > o2d ? o2 : o1; 
     }
     
 
