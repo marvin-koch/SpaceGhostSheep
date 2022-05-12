@@ -184,8 +184,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
+  m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -209,8 +209,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &44669075
@@ -454,8 +454,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 6643261074103084656, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
+  m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.65
+  m_fontSize: 42.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1111,10 +1111,10 @@ RectTransform:
   m_Father: {fileID: 249183621}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.72200006, y: 0.041}
-  m_AnchorMax: {x: 0.979645, y: 0.16122892}
-  m_AnchoredPosition: {x: 0.5, y: 0.055786133}
-  m_SizeDelta: {x: -10.444702, y: -10.777893}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -193.44421}
+  m_SizeDelta: {x: 300, y: 48.222107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &174812739
 MonoBehaviour:
@@ -3746,10 +3746,10 @@ RectTransform:
   m_Father: {fileID: 249183621}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.72200006, y: 0.16122892}
-  m_AnchorMax: {x: 0.979645, y: 0.259}
-  m_AnchoredPosition: {x: 0, y: -0.7200928}
-  m_SizeDelta: {x: -9.444702, y: -2.7779007}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -141.2201}
+  m_SizeDelta: {x: 300, y: 44.222107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940450781
 MonoBehaviour:
@@ -4391,7 +4391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6117647}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5001,7 +5001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.764, y: -11.863}
+  m_AnchoredPosition: {x: -0.764, y: 20}
   m_SizeDelta: {x: 331.086, y: 244.034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215734807
@@ -5024,21 +5024,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'THERE ARE 3 ROBOTS: RED, BLUE & GREEN.
+  m_text: 'the game takes place in the jungle where there are 3 ROBOTS.
 
-    THE RED ROBOT BELONGS TO THE
-    1ST PLAYER NAD CAN BE MOVED USING THE MOUSE (CLICK & DRAG). THE BLUE ROBOT BELONGS
-    TO THE SECOND PLAYER AND CAN BE MOVED USING THE KEYBOARD WASD. YOUR GOAL IS TO
-    GET AS MUCH POINTS AS POSSIBLE.
-
-    TO EARN A POINT YOU SHOULD PUT THE GREEN
-    ROBOT (SHEEP) IN THE GREEN RING. THE PLAYER WHO''S CLOSEST TO THE SHEEP AT THE
-    TIME WILL EARN THE POINT. RANDOMLY DURING THE GAME, THE SHEEP WILL TURN IN TO
-    A MONSTER THAT CHASES YOU AND IF IT CATCHES YOU, YOU WILL LOSE A POINT. THE GAME
-    ENDS IN 2 MINUTES. ENJOOOOOOOOOOOY!'
+    EACH
+    robot will be assigned a role which is associated with a colour. the robot which
+    is the monkey will be orange, the toucan will be yellow and the sloth will be
+    white ( it has no color because it is too lazy). the sloth will chase the monkey,
+    the monkey will chase the toucan and the toucan the sloth. to win points, the
+    player must touch its prey for a certain amount of time specific to each role.
+    to remind the player who he must chase, the front led of the robot will be the
+    colour of the prey. in addition, leds will also light up when the bonus in the
+    middle appears.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0bc1de604b91fb1f4bc8d2beeefe2c74, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
+  m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5101,7 +5100,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1215734808
@@ -5282,8 +5281,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 6643261074103084656, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
+  m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5307,7 +5306,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.9
+  m_fontSize: 42.9
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5389,10 +5388,10 @@ RectTransform:
   m_Father: {fileID: 249183621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5605441, y: 0.5563334}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -71.794815, y: 6.3247833}
-  m_SizeDelta: {x: 56.41037, y: -12.649567}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 90}
+  m_SizeDelta: {x: 408.41037, y: 202.35043}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260507238
 MonoBehaviour:
@@ -5414,14 +5413,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Chaos
-
-    In The
-
-    Jungle'
+  m_text: CHAOS IN THE JUNGLE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 6643261074103084656, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 642241b888b0f4499a1a73c5ebae0b14, type: 2}
+  m_sharedMaterial: {fileID: 2557767797403277364, guid: 642241b888b0f4499a1a73c5ebae0b14, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5445,14 +5440,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.45
+  m_fontSize: 70.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -6383,7 +6378,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9e4b0b7aec2703bb6966505c6ba47b23, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c7e4b4a33420451db6dd68614fe94ad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -6822,8 +6817,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 6643261074103084656, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
+  m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6847,7 +6842,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.35
+  m_fontSize: 46.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7494,8 +7489,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Instructions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 6643261074103084656, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
+  m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7519,7 +7514,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.55
+  m_fontSize: 38.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7881,7 +7876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 142}
+  m_AnchoredPosition: {x: 0, y: 160}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740098962
@@ -7904,10 +7899,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instruction
+  m_text: Instructions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 68abdb62dae462deb881a867c51cca0e, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 642241b888b0f4499a1a73c5ebae0b14, type: 2}
+  m_sharedMaterial: {fileID: 2557767797403277364, guid: 642241b888b0f4499a1a73c5ebae0b14, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7931,8 +7926,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7970,7 +7965,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1740098963
@@ -8877,10 +8872,10 @@ RectTransform:
   m_Father: {fileID: 249183621}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.72200006, y: 0.36259037}
-  m_AnchorMax: {x: 0.979645, y: 0.47340965}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0}
-  m_SizeDelta: {x: -9.444702, y: -7.7779007}
+  m_AnchorMin: {x: 0.5, y: 0.36259037}
+  m_AnchorMax: {x: 0.5, y: 0.47340965}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: -7.777897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930553370
 MonoBehaviour:
@@ -9144,10 +9139,10 @@ RectTransform:
   m_Father: {fileID: 249183621}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.72200006, y: 0.259}
-  m_AnchorMax: {x: 0.979645, y: 0.36259037}
-  m_AnchoredPosition: {x: 0, y: 0.27801514}
-  m_SizeDelta: {x: -9.444702, y: -4.7779007}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -91.721985}
+  m_SizeDelta: {x: 300, y: 45.2221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960805730
 MonoBehaviour:
