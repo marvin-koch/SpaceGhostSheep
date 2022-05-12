@@ -87,7 +87,6 @@ public class GhostSheepBehavior : AgentBehaviour
             steering.linear = directionOfMovement * agent.maxAccel;
             steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
         }
-        print("Ciao je suis executé");
         return steering;
     }
 

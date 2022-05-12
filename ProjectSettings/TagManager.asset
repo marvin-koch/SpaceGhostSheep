@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Sheep
   - Ghost
+  - Monkey
+  - Sloth
+  - Toucan
   layers:
   - Default
   - TransparentFX
