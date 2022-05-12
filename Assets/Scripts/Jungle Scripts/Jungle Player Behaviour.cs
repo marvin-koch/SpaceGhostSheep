@@ -7,6 +7,12 @@ public class JunglePlayerBehaviour : AgentBehaviour
     int MONKEY_TOUCH_TIME = 2;
     int TOUCAN_TOUCH_TIME = 2;
     int SLOTH_TOUCH_TIME = 2;
+
+    int timer;
+
+
+    int timeOnTouch = 0;
+    bool touchedPrey = false;
     // Start is called before the first frame update
 
     void Start()
@@ -87,24 +93,67 @@ public class JunglePlayerBehaviour : AgentBehaviour
         */
 
         if(this.gameObject.CompareTag("Monkey")){
-            if(collision.gameObject.CompareTag("Toucan")){
-                this.GetComponent<public_variables>().score += 1;
-            }
+            touchedPrey = collision.gameObject.CompareTag("Toucan");
+            timer = MONKEY_TOUCH_TIME;
+
         }else if(this.gameObject.CompareTag("Toucan")){
-            if(collision.gameObject.CompareTag("Sloth")){
-                this.GetComponent<public_variables>().score += 1;
-            }
-        }else{
-            if(collision.gameObject.CompareTag("Monkey")){
-                this.GetComponent<public_variables>().score += 1;
-            }
+            touchedPrey = collision.gameObject.CompareTag("Sloth");
+            timer = TOUCAN_TOUCH_TIME;
+        }else if(this.gameObject.CompareTag("Sloth")){
+            touchedPrey = collision.gameObject.CompareTag("Monkey");
+            timer = SLOTH_TOUCH_TIME;
         }
 
+        timeOnTouch = Timer.timeRemaining;
+
+    }
+
+    void OnCollisionStay(Collision collisionInfo)
+    {
+        if(touchedPrey){
+            if(this.gameObject.CompareTag("Monkey")){
+                if(timer <= 0){
+                    this.GetComponent<public_variables>().score += 1;
+                }else{
+                    timer - Time.deltaTime;
+                }
+                
+            }else if(this.gameObject.CompareTag("Toucan")){
+                if(timer <= 0){
+                    this.GetComponent<public_variables>().score += 1;
+                }else{
+                    timer - Time.deltaTime;
+                }
+            }else if(this.gameObject.CompareTag("Sloth")){
+                if(timer <= 0){
+                    this.GetComponent<public_variables>().score += 1;
+                }else{
+                    timer - Time.deltaTime;
+                }
+            }
+        }
     }
 
     private void OnCollisionExit(CollectionExtensions collision){
 
         // Compare le temps à l'entrée et la sorte
+        if(touchedPrey){
+            if(this.gameObject.CompareTag("Monkey")){
+                if((timeOnTouch - Timer.timeRemaining) == MONKEY_TOUCH_TIME){
+                    this.GetComponent<public_variables>().score += 1;
+                }
+                
+            }else if(this.gameObject.CompareTag("Toucan")){
+                if((timeOnTouch - Timer.timeRemaining) == TOUCAN_TOUCH_TIME){
+                    this.GetComponent<public_variables>().score += 1;
+                }
+            }else if(this.gameObject.CompareTag("Sloth")){
+                if((timeOnTouch - Timer.timeRemaining) == SLOTH_TOUCH_TIME){
+                    this.GetComponent<public_variables>().score += 1;
+                }
+            }
+        }
+        
 
 
     }
