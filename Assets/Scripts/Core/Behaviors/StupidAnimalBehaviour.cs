@@ -16,13 +16,12 @@ public class StupidAnimalBehaviour : AgentBehaviour
         Color color = null;
         switch (this.gameObject.tag)
         {
-            case "Monkey": color = Color.g
+            case "Monkey": color = new Color(1f, 0.5f, 0f);
             case "Sloth": color = Color.black;
             case "Toucan": color = Color.yellow;
             default: print("Error : should not be in this case."); break;
         }
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 128);
-        // r = 1 g = 0.5 b = 0 pour orange
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, color, 128);
     }
     
     public override Steering GetSteering()
