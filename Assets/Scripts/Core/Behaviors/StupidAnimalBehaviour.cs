@@ -13,20 +13,26 @@ public class StupidAnimalBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
-        Color color = null;
+        Color color = Color.white;
         switch (this.gameObject.tag)
         {
             case "Monkey": color = new Color(1f, 0.5f, 0f);
+                break;
             case "Sloth": color = Color.black;
+                break;
             case "Toucan": color = Color.yellow;
-            default: print("Error : should not be in this case."); break;
+                break;
+            default: print("Error : should not be in this case."); 
+                break;
         }
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, color, 128);
     }
     
     public override Steering GetSteering()
     {
-        GameObject me = this.gameObject
+        Steering steering = new Steering();
+
+        GameObject me = this.gameObject;
         Vector3 directionOfMovement = Vector3.zero;
 
         if (Distance(me, FindCurrentEnemy()) < 6.0)
@@ -40,6 +46,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
 
         steering.linear = directionOfMovement * agent.maxAccel;
         steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
+        return steering;
     }
 
     public GameObject FindCurrentEnemy()
@@ -47,10 +54,14 @@ public class StupidAnimalBehaviour : AgentBehaviour
         GameObject enemy = null;
         switch (this.gameObject.tag)
         {
-            case "Monkey" : enemy = GameObject.FindWithTag("Sloth"); break;
-            case "Sloth" : enemy = GameObject.FindWithTag("Toucan"); break;
-            case "Toucan": enemy = GameObject.FindWithTag("Monkey"); break;
-            default : print("Error : should not be in this case."); enemy = null; break;
+            case "Monkey" : enemy = GameObject.FindWithTag("Sloth"); 
+                break;
+            case "Sloth" : enemy = GameObject.FindWithTag("Toucan"); 
+                break;
+            case "Toucan": enemy = GameObject.FindWithTag("Monkey"); 
+                break;
+            default : print("Error : should not be in this case."); enemy = null; 
+                break;
         }
         return enemy;
     }
@@ -60,10 +71,14 @@ public class StupidAnimalBehaviour : AgentBehaviour
         GameObject prey = null;
         switch (this.gameObject.tag)
         {
-            case "Monkey": prey = GameObject.FindWithTag("Toucan"); break;
-            case "Sloth": prey = GameObject.FindWithTag("Monkey"); break;
-            case "Toucan": prey = GameObject.FindWithTag("Sloth"); break;
-            default: print("Error : should not be in this case."); prey = null; break;
+            case "Monkey": prey = GameObject.FindWithTag("Toucan"); 
+                break;
+            case "Sloth": prey = GameObject.FindWithTag("Monkey"); 
+                break;
+            case "Toucan": prey = GameObject.FindWithTag("Sloth"); 
+                break;
+            default: print("Error : should not be in this case."); prey = null; 
+                break;
         }
         return prey;
     }
@@ -73,13 +88,13 @@ public class StupidAnimalBehaviour : AgentBehaviour
         return Vector3.Distance(o1.transform.position, o2.transform.position);
     }
 
-    /*
+   //Not used
     public GameObject Closest(GameObject o1, GameObject o2)
     {
         float o1d = Vector3.Distance(this.gameObject.transform.position, o1.transform.position);
         float o2d = Vector3.Distance(this.gameObject.transform.position, o2.transform.position);
         return o1d > o2d ? o2d : o1d; 
     }
-    */
+    
 
 }
