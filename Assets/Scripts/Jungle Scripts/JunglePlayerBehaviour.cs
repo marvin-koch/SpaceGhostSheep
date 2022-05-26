@@ -4,16 +4,59 @@ using UnityEngine;
 
 public class JunglePlayerBehaviour : AgentBehaviour
 {
+
+    
+
+    public bool long_pressing;
     int MONKEY_TOUCH_TIME = 2;
     int TOUCAN_TOUCH_TIME = 2;
     int SLOTH_TOUCH_TIME = 2;
 
-    int timer;
+    public int player;
+    int input = 0;
+
+    Color MONKEY_COLOR = new Color(1f, 0.5f, 0f); //brown
+    Color TOUCAN_COLOR = Color.yellow;
+    Color SLOTH_COLOR = Color.grey;
+    Color RING_COLOR = Color.green;
+    float timer;
+
+    public bool slothIsLazy = false;
+
+    public float stamina = 0;
 
 
-    int timeOnTouch = 0;
+
+    float timeOnTouch = 0;
     bool touchedPrey = false;
     // Start is called before the first frame update
+
+    /*
+    void SetColor(Color playerColor, Color targetColor, Color ringColor){
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, targetColor, 0);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, targetColor, 1);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, targetColor, 2);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, playerColor, 3);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, ringColor, 4);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, playerColor, 5);
+    }
+    */
+
+    void SetColor(GameObject gameObject, bool blinking){
+        
+        Color self = SAB.FindCurrentColorOf(this.gameObject);
+        Color prey = SAB.FindCurrentColorOf(SAB.FindCurrentPrey());
+
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 0);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 1);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 2);
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, self, 3);
+    
+        VisualEffect effect = blinking ? VisualEffect.VisualEffectAlertSingle : VisualEffect.VisualEffectConstSingle;
+        this.agent.setVisualEffect(effect, RING_COLOR, 4);
+    
+        this.agent.setVisualEffect(VisualEffect.VisualEffectConstSingle, self, 5);
+    }
 
     void Start()
     {
@@ -23,6 +66,65 @@ public class JunglePlayerBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Set Color
+        SetColor(SAB.FindCurrentColorOf(this.gameObject), SAB.FindCurrentColorOf(SAB.FindCurrentPrey()), RING_COLOR);
+        if (this.gameObject.CompareTag("Monkey")){
+
+            stamina = 0;
+
+        } else if (this.gameObject.CompareTag("Toucan")){
+            if(!Timer.paused){
+                stamina += Time.deltaTime;
+            }
+
+            if(stamina >= 10){
+                this.agent.MoveOnMud();
+                
+            }
+            
+        } else if (this.gameObject.CompareTag("Sloth")){
+            if(!Timer.paused){
+                stamina += Time.deltaTime;
+            }
+
+            //Comment faire qu'on applle Random qu'une seule fois?
+
+            if(stamina >= 10 && !(stamina >= 15)){
+                if(!slothIsLazy){
+                    var rng = new System.Random();
+                    int mode = rng.Next(0,3);
+                    switch(mode){
+                        case 0:
+                            this.agent.MoveOnStone();
+                            break;
+                        case 1:
+                            this.agent.MoveOnMud();
+                            break;
+                        case 2:
+                            this.agent.MoveOnIce();
+                            break;
+                        case 3:
+                            this.agent.MoveOnSandpaper();
+                            break;
+                        default:
+                            break;
+                    }
+                    slothIsLazy = true;
+                }
+            }
+            
+            if(stamina >= 15){
+                if(slothIsLazy){
+                    this.agent.MoveOnMud();
+                    stamina = 0;
+                    slothIsLazy = false;
+
+                }
+            }
+
+        } else {
+            print("Wtf why are we here ?");
+        }
         
     }
     public override Steering GetSteering()
@@ -114,49 +216,35 @@ public class JunglePlayerBehaviour : AgentBehaviour
             if(this.gameObject.CompareTag("Monkey")){
                 if(timer <= 0){
                     this.GetComponent<public_variables>().score += 1;
+                    //Impelement change of roles
+                    JungleGameManager.assignRoles();
                 }else{
-                    timer - Time.deltaTime;
+                    if(!Timer.paused){
+                        timer -= Time.deltaTime;
+                    }
                 }
-                
             }else if(this.gameObject.CompareTag("Toucan")){
                 if(timer <= 0){
                     this.GetComponent<public_variables>().score += 1;
+                    JungleGameManager.assignRoles();
                 }else{
-                    timer - Time.deltaTime;
+                    if(!Timer.paused){
+                        timer -= Time.deltaTime;
+                    }
                 }
             }else if(this.gameObject.CompareTag("Sloth")){
                 if(timer <= 0){
                     this.GetComponent<public_variables>().score += 1;
+                    JungleGameManager.assignRoles();
                 }else{
-                    timer - Time.deltaTime;
+                    if(!Timer.paused){
+                        timer -= Time.deltaTime;
+                    }
                 }
             }
         }
     }
 
-    private void OnCollisionExit(CollectionExtensions collision){
-
-        // Compare le temps à l'entrée et la sorte
-        if(touchedPrey){
-            if(this.gameObject.CompareTag("Monkey")){
-                if((timeOnTouch - Timer.timeRemaining) == MONKEY_TOUCH_TIME){
-                    this.GetComponent<public_variables>().score += 1;
-                }
-                
-            }else if(this.gameObject.CompareTag("Toucan")){
-                if((timeOnTouch - Timer.timeRemaining) == TOUCAN_TOUCH_TIME){
-                    this.GetComponent<public_variables>().score += 1;
-                }
-            }else if(this.gameObject.CompareTag("Sloth")){
-                if((timeOnTouch - Timer.timeRemaining) == SLOTH_TOUCH_TIME){
-                    this.GetComponent<public_variables>().score += 1;
-                }
-            }
-        }
-        
-
-
-    }
 
 
 

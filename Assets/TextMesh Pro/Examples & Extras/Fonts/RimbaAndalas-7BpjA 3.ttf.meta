@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: b07bcb122059e45d792208a73cb58ce0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rimba Andalas
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ac98fb80673084710a0412a8b5f9d5ae, type: 3}
+  - {fileID: 12800000, guid: d2e49d0d3037a4755bd4a047f3932f6d, type: 3}
+  - {fileID: 12800000, guid: 3727a82e7de554896a8b7cbb7a6d9951, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
