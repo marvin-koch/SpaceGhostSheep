@@ -17,10 +17,10 @@ public class both_players_long_press : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (players[0].GetComponent<MoveCelluloBehaviour>().long_pressing && players[1].GetComponent<MoveCelluloBehaviour>().long_pressing && startButton.gameObject.activeSelf) {
+        if (players[0].GetComponent<JunglePlayerBehaviour>().long_pressing && players[1].GetComponent<JunglePlayerBehaviour>().long_pressing && startButton.gameObject.activeSelf) {
             startButton.onClick.Invoke();
             foreach (GameObject player in players) {
-                player.GetComponent<MoveCelluloBehaviour>().long_pressing = false;
+                player.GetComponent<JunglePlayerBehaviour>().long_pressing = false;
             }
         }
     }
