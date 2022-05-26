@@ -13,18 +13,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
-        Color color = Color.white;
-        switch (this.gameObject.tag)
-        {
-            case "Monkey": color = new Color(1f, 0.5f, 0f);
-                break;
-            case "Sloth": color = Color.black;
-                break;
-            case "Toucan": color = Color.yellow;
-                break;
-            default: print("Error : should not be in this case."); 
-                break;
-        }
+        Color color = FindCurrentColorOf(this.gameObject);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, color, 128);
     }
     
@@ -47,6 +36,22 @@ public class StupidAnimalBehaviour : AgentBehaviour
         steering.linear = directionOfMovement * agent.maxAccel;
         steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
         return steering;
+    }
+
+    public Color FindCurrentColorOf(GameObject gameObject) {
+        Color color = Color.white;
+        switch (gameObject.tag)
+        {
+            case "Monkey": color = new Color(1f, 0.5f, 0f);
+                break;
+            case "Sloth": color = Color.black;
+                break;
+            case "Toucan": color = Color.yellow;
+                break;
+            default: print("Error : should not be in this case."); 
+                break;
+        }
+        return color;
     }
 
     public GameObject FindCurrentEnemy()
