@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class JungleGameManager : MonoBehaviour
 {
-    public static GameObject[] players;
-    public static string[] tagsTable = {"Monkey", "Toucan", "Sloth"};
+    public GameObject[] players;
+    public string[] tagsTable = {"Monkey", "Toucan", "Sloth"};
+
+
+    void Start()
+    {
+        assignRoles();
+    }
+
+
     static string[] shuffle(string[] array)
     {
         int p = array.Length;
@@ -19,7 +27,7 @@ public class JungleGameManager : MonoBehaviour
         }
         return array;
     }
-    public static void assignRoles()
+    public void assignRoles()
     {
         var array = shuffle(tagsTable);
         //var rng = new System.Random(); //burkina faso

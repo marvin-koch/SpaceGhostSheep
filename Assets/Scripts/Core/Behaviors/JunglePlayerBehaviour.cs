@@ -17,7 +17,6 @@ public class JunglePlayerBehaviour : AgentBehaviour
     Color MONKEY_COLOR = new Color(1f, 0.5f, 0f); //brown
     Color TOUCAN_COLOR = Color.yellow;
     Color SLOTH_COLOR = Color.grey;
-    Color RING_COLOR = Color.green;
     float timer;
 
     public bool slothIsLazy = false;
@@ -30,17 +29,6 @@ public class JunglePlayerBehaviour : AgentBehaviour
     bool touchedPrey = false;
     // Start is called before the first frame update
 
-    /*
-    void SetColor(Color playerColor, Color targetColor, Color ringColor){
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, targetColor, 0);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, targetColor, 1);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, targetColor, 2);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, playerColor, 3);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, ringColor, 4);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, playerColor, 5);
-    }
-    */
-
     void Start()
     {
     }
@@ -49,7 +37,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
     void Update()
     {
         //Set Color
-        SetColor(this.gameObject, false);
+        this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
         if (this.gameObject.CompareTag("Monkey")){
 
             stamina = 0;
@@ -108,22 +96,6 @@ public class JunglePlayerBehaviour : AgentBehaviour
             print("Wtf why are we here ?");
         }
         
-    }
-
-     void SetColor(GameObject gameObject, bool blinking){
-        
-        Color self = StupidAnimalBehaviour.FindCurrentColorOf(this.gameObject);
-        Color prey = StupidAnimalBehaviour.FindCurrentColorOf(StupidAnimalBehaviour.FindCurrentPrey(this.gameObject));
-
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 0);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 1);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 2);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 3);
-    
-        VisualEffect effect = blinking ? VisualEffect.VisualEffectAlertSingle : VisualEffect.VisualEffectConstSingle;
-        this.agent.SetVisualEffect(effect, RING_COLOR, 4);
-    
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 5);
     }
 
     public override Steering GetSteering()
@@ -216,7 +188,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
                 if(timer <= 0){
                     this.GetComponent<public_variables>().score += 1;
                     //Impelement change of roles
-                    JungleGameManager.assignRoles();
+                    this.transform.parent.gameObject.GetComponent<JungleGameManager>().assignRoles();
                 }else{
                     if(!Timer.paused){
                         timer -= Time.deltaTime;
@@ -225,7 +197,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
             }else if(this.gameObject.CompareTag("Toucan")){
                 if(timer <= 0){
                     this.GetComponent<public_variables>().score += 1;
-                    JungleGameManager.assignRoles();
+                    this.transform.parent.gameObject.GetComponent<JungleGameManager>().assignRoles();
                 }else{
                     if(!Timer.paused){
                         timer -= Time.deltaTime;
@@ -234,7 +206,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
             }else if(this.gameObject.CompareTag("Sloth")){
                 if(timer <= 0){
                     this.GetComponent<public_variables>().score += 1;
-                    JungleGameManager.assignRoles();
+                    this.transform.parent.gameObject.GetComponent<JungleGameManager>().assignRoles();
                 }else{
                     if(!Timer.paused){
                         timer -= Time.deltaTime;
