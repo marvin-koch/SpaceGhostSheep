@@ -1885,9 +1885,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 595520802}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 300
+  m_MaxValue: 15
   m_WholeNumbers: 0
-  m_Value: 300
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3939,9 +3939,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 62674359}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 300
+  m_MaxValue: 15
   m_WholeNumbers: 0
-  m_Value: 300
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4462,6 +4462,7 @@ MonoBehaviour:
   long_pressing: 0
   slothIsLazy: 0
   stamina: 0
+  slider: {fileID: 1411602138}
   player: 2
 --- !u!114 &1564360446
 MonoBehaviour:
@@ -4768,6 +4769,7 @@ MonoBehaviour:
   long_pressing: 0
   slothIsLazy: 0
   stamina: 0
+  slider: {fileID: 642431109}
   player: 1
 --- !u!114 &1653094396
 MonoBehaviour:
@@ -6119,9 +6121,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1175583158}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 300
+  m_MaxValue: 15
   m_WholeNumbers: 0
-  m_Value: 300
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6245,6 +6247,7 @@ MonoBehaviour:
     m_Bits: 1
   long_pressing: 0
   slothIsLazy: 0
+  slider: {fileID: 2084151210}
   stamina: 0
 --- !u!114 &2115442782
 MonoBehaviour:

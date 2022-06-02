@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StupidAnimalBehaviour : AgentBehaviour
 {
@@ -15,6 +17,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
     float timer;
 
     public bool slothIsLazy = false;
+    public Slider slider;
 
     public float stamina = 0;
 
@@ -32,10 +35,12 @@ public class StupidAnimalBehaviour : AgentBehaviour
         this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
         if (this.gameObject.CompareTag("Monkey")){
             stamina = 0;
+            slider.value = 15 -stamina;
 
         } else if (this.gameObject.CompareTag("Toucan")){
             if(!Timer.paused){
                 stamina += Time.deltaTime;
+                slider.value = 15 -stamina;
             }
 
             if(stamina >= 10){
@@ -46,11 +51,12 @@ public class StupidAnimalBehaviour : AgentBehaviour
         } else if (this.gameObject.CompareTag("Sloth")){
             if(!Timer.paused){
                 stamina += Time.deltaTime;
+                slider.value = 15 -stamina;
             }
 
             //Comment faire qu'on applle Random qu'une seule fois?
 
-            if(stamina >= 10 && !(stamina >= 15)){
+            if(stamina >= 15 && !(stamina >= 20)){
                 if(!slothIsLazy){
                     var rng = new System.Random();
                     int mode = rng.Next(0,2);
@@ -71,7 +77,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
                 }
             }
             
-            if(stamina >= 15 && slothIsLazy){
+            if(stamina >= 20 && slothIsLazy){
                 this.agent.MoveOnMud();
                 stamina = 0;
                 slothIsLazy = false;
