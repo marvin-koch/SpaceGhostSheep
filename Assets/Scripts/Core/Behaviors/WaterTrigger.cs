@@ -33,7 +33,7 @@ public class WaterTrigger : MonoBehaviour{
     void OnTriggerStay(Collider other){
         GameObject player = other.transform.parent.gameObject;
         float stamina = player.GetComponent<JunglePlayerBehaviour>() == null ? player.GetComponent<StupidAnimalBehaviour>().stamina : player.GetComponent<JunglePlayerBehaviour>().stamina;
-        float slothIsLazy = player.GetComponent<JunglePlayerBehaviour>() == null ? player.GetComponent<StupidAnimalBehaviour>().slothIsLazy : player.GetComponent<JunglePlayerBehaviour>().slothIsLazy;
+        bool slothIsLazy = player.GetComponent<JunglePlayerBehaviour>() == null ? player.GetComponent<StupidAnimalBehaviour>().slothIsLazy : player.GetComponent<JunglePlayerBehaviour>().slothIsLazy;
         if (player.CompareTag("Monkey")) {
             player.GetComponent<CelluloAgentRigidBody>().MoveOnMud();
 
