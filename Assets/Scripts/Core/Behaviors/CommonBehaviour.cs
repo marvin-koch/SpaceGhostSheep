@@ -75,8 +75,7 @@ public class CommonBehaviour : AgentBehaviour
         Color self = this.GetComponent<CommonBehaviour>().FindCurrentColorOf();
         GameObject prey_object = this.GetComponent<CommonBehaviour>().FindCurrentPrey();
         Color prey = prey_object.GetComponent<CommonBehaviour>().FindCurrentColorOf();
-        //GetComponent<JunglePlayerBehaviour>().FindCurrentColorOf();
-
+    
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 0);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 1);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 2);

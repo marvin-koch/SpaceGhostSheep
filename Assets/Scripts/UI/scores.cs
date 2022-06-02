@@ -12,6 +12,9 @@ public class scores : MonoBehaviour
 
     private int score2;
     private TextMeshProUGUI text2;
+
+    private int score3;
+    private TextMeshProUGUI text3;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,11 @@ public class scores : MonoBehaviour
         GameObject player2 = this.transform.GetChild(2).gameObject;
         text2 = player2.GetComponent<TMPro.TextMeshProUGUI>();
         text2.text = string.Format("Player 2 : {0}", score2);
+
+        score3 = global_variables.score3;
+        GameObject ai = this.transform.GetChild(3).gameObject;
+        text3 = ai.GetComponent<TMPro.TextMeshProUGUI>();
+        text3.text = string.Format("AI : {0}", score3);
 
     }
 

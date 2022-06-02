@@ -6,6 +6,7 @@ public class global_variables : MonoBehaviour
 {
     public static int score1;
     public static int score2;
+    public static int score3;
     // Start is called before the first frame update
     void Start()
     {

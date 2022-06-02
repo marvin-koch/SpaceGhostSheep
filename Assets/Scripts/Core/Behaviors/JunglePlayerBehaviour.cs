@@ -5,14 +5,10 @@ using UnityEngine;
 public class JunglePlayerBehaviour : AgentBehaviour
 {
 
-    
     public bool long_pressing;
-    int MONKEY_TOUCH_TIME = 2;
-    int TOUCAN_TOUCH_TIME = 2;
-    int SLOTH_TOUCH_TIME = 2;
-
-    public int player;
-    int input = 0;
+    float MONKEY_TOUCH_TIME = 2;
+    float TOUCAN_TOUCH_TIME = 2;
+    float SLOTH_TOUCH_TIME = 2;
 
     Color MONKEY_COLOR = new Color(1f, 0.5f, 0f); //brown
     Color TOUCAN_COLOR = Color.yellow;
@@ -23,12 +19,13 @@ public class JunglePlayerBehaviour : AgentBehaviour
 
     public float stamina = 0;
 
-
-
     float timeOnTouch = 0;
     bool touchedPrey = false;
-    // Start is called before the first frame update
 
+    public int player;
+    int input = 0;
+
+    // Start is called before the first frame update
     void Start()
     {
     }
@@ -39,7 +36,6 @@ public class JunglePlayerBehaviour : AgentBehaviour
         //Set Color
         this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
         if (this.gameObject.CompareTag("Monkey")){
-
             stamina = 0;
 
         } else if (this.gameObject.CompareTag("Toucan")){
@@ -62,7 +58,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
             if(stamina >= 10 && !(stamina >= 15)){
                 if(!slothIsLazy){
                     var rng = new System.Random();
-                    int mode = rng.Next(0,3);
+                    int mode = rng.Next(0,2);
                     switch(mode){
                         case 0:
                             this.agent.MoveOnStone();
@@ -71,9 +67,6 @@ public class JunglePlayerBehaviour : AgentBehaviour
                             this.agent.MoveOnMud();
                             break;
                         case 2:
-                            this.agent.MoveOnIce();
-                            break;
-                        case 3:
                             this.agent.MoveOnSandpaper();
                             break;
                         default:
@@ -83,17 +76,13 @@ public class JunglePlayerBehaviour : AgentBehaviour
                 }
             }
             
-            if(stamina >= 15){
-                if(slothIsLazy){
-                    this.agent.MoveOnMud();
-                    stamina = 0;
-                    slothIsLazy = false;
-
-                }
+            if(stamina >= 15 && slothIsLazy){
+                this.agent.MoveOnMud();
+                stamina = 0;
+                slothIsLazy = false;
             }
-
         } else {
-            print("Wtf why are we here ?");
+            print("why are we here ?");
         }
         
     }
@@ -112,20 +101,18 @@ public class JunglePlayerBehaviour : AgentBehaviour
 
             if (input == 1)
             {
-
-                //print("Getting Arrows");
                 horizontal = Input.GetAxis("Horizontal");
                 vertical = Input.GetAxis("Vertical");
+
                 steering.linear = new Vector3(horizontal, 0, vertical) * agent.maxAccel;
                 steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
                 linear, agent.maxAccel));
             }
             else if(input == 0)
             {
-                //print("Getting WASD");
                 horizontal = Input.GetAxis("HorizontalWASD");
                 vertical = Input.GetAxis("VerticalWASD");
-                //print("Finished WASD");
+                
                 steering.linear = new Vector3(horizontal, 0, vertical) * agent.maxAccel;
                 steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
                 linear, agent.maxAccel));
@@ -155,24 +142,15 @@ public class JunglePlayerBehaviour : AgentBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        /**
-        if (collision.gameObject.CompareTag("Player") && this.GetComponent<public_variables>().stealer)
-        {
-            this.GetComponent<public_variables>().score = this.GetComponent<public_variables>().score + 2;
-            collision.gameObject.GetComponent<public_variables>().score = collision.gameObject.GetComponent<public_variables>().score - 2;
-            this.GetComponent<public_variables>().stealer = false;
-            
-        }
-        */
 
-        if(this.gameObject.CompareTag("Monkey")){
+        if (this.gameObject.CompareTag("Monkey")) {
             touchedPrey = collision.gameObject.CompareTag("Toucan");
             timer = MONKEY_TOUCH_TIME;
 
-        }else if(this.gameObject.CompareTag("Toucan")){
+        } else if (this.gameObject.CompareTag("Toucan")) {
             touchedPrey = collision.gameObject.CompareTag("Sloth");
             timer = TOUCAN_TOUCH_TIME;
-        }else if(this.gameObject.CompareTag("Sloth")){
+        } else if (this.gameObject.CompareTag("Sloth")) {
             touchedPrey = collision.gameObject.CompareTag("Monkey");
             timer = SLOTH_TOUCH_TIME;
         }
@@ -183,43 +161,37 @@ public class JunglePlayerBehaviour : AgentBehaviour
 
     void OnCollisionStay(Collision collisionInfo)
     {
-        if(touchedPrey){
-            if(this.gameObject.CompareTag("Monkey")){
-                if(timer <= 0){
+        if (touchedPrey && !Timer.paused) {
+            if (this.gameObject.CompareTag("Monkey")) {
+                if (timer <= 0) {
                     this.GetComponent<public_variables>().score += 1;
-                    //Impelement change of roles
+                    timer = MONKEY_TOUCH_TIME;
                     this.transform.parent.gameObject.GetComponent<JungleGameManager>().assignRoles();
-                }else{
-                    if(!Timer.paused){
-                        timer -= Time.deltaTime;
-                    }
-                }
-            }else if(this.gameObject.CompareTag("Toucan")){
-                if(timer <= 0){
+                } else {
+                     timer -= Time.deltaTime;
+                 }
+            } else if (this.gameObject.CompareTag("Toucan")) {
+                if (timer <= 0) {
                     this.GetComponent<public_variables>().score += 1;
+                    timer = TOUCAN_TOUCH_TIME;
                     this.transform.parent.gameObject.GetComponent<JungleGameManager>().assignRoles();
-                }else{
-                    if(!Timer.paused){
-                        timer -= Time.deltaTime;
-                    }
-                }
-            }else if(this.gameObject.CompareTag("Sloth")){
-                if(timer <= 0){
+                 } else {
+                    timer -= Time.deltaTime;
+                 }
+            } else if (this.gameObject.CompareTag("Sloth")) {
+                if (timer <= 0) {
                     this.GetComponent<public_variables>().score += 1;
+                    timer = SLOTH_TOUCH_TIME;
                     this.transform.parent.gameObject.GetComponent<JungleGameManager>().assignRoles();
-                }else{
-                    if(!Timer.paused){
-                        timer -= Time.deltaTime;
-                    }
+                } else {
+                    timer -= Time.deltaTime;
                 }
             }
         }
     }
 
-
-
-
     public override void OnCelluloLongTouch(int key){
         long_pressing = true;
     }
 }
+
