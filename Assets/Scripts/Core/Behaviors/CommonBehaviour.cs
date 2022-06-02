@@ -38,7 +38,6 @@ public class CommonBehaviour : AgentBehaviour
     public GameObject FindCurrentPrey()
     {
         GameObject prey = null;
-                Debug.Log("find current prey self : " + this.gameObject.tag);
 
         switch (this.gameObject.tag)
         {

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class JungleGameManager : MonoBehaviour
 {
+    public GameObject jungleGem;
     public GameObject[] players;
     public string[] tagsTable = {"Monkey", "Toucan", "Sloth"};
-
 
     void Start()
     {
         assignRoles();
+        InvokeRepeating("instantiateGem", 30f, 30f);
     }
-
 
     static string[] shuffle(string[] array)
     {
@@ -27,6 +27,7 @@ public class JungleGameManager : MonoBehaviour
         }
         return array;
     }
+
     public void assignRoles()
     {
         var array = shuffle(tagsTable);
@@ -34,6 +35,15 @@ public class JungleGameManager : MonoBehaviour
         //var shuffledTags = tagsTable.OrderBy(a => rng.Next()).ToList();
         for(int i = 0; i < 3; ++i){
             players[i].tag = array[i];
+        }
+    }
+
+    public void instantiateGem() {
+        if (!Timer.paused) {
+            GameObject clone = Instantiate(jungleGem);
+            float x = 14.49f;
+            float z = -10.23f;
+            clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
         }
     }
 }
