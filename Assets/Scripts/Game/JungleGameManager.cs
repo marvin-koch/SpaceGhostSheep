@@ -6,12 +6,13 @@ public class JungleGameManager : MonoBehaviour
 {
     public GameObject jungleGem;
     public GameObject[] players;
+    public float gemTime = 45f;
     public string[] tagsTable = {"Monkey", "Toucan", "Sloth"};
 
     void Start()
     {
         assignRoles();
-        InvokeRepeating("instantiateGem", 30f, 30f);
+        InvokeRepeating("instantiateGem", 30f, gemTime);
     }
 
     static string[] shuffle(string[] array)
