@@ -61,7 +61,7 @@ public class CommonBehaviour : AgentBehaviour
         {
             case "Monkey": color = new Color(1f, 0.5f, 0f);
                 break;
-            case "Sloth": color = Color.black;
+            case "Sloth": color = Color.blue;
                 break;
             case "Toucan": color = Color.yellow;
                 break;
@@ -80,11 +80,12 @@ public class CommonBehaviour : AgentBehaviour
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 0);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 1);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 2);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 3);
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 3);
     
         VisualEffect effect = blinking ? VisualEffect.VisualEffectAlertSingle : VisualEffect.VisualEffectConstSingle;
-        this.agent.SetVisualEffect(effect, RING_COLOR, 4);
+        //this.agent.SetVisualEffect(effect, RING_COLOR, 4);
     
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 4);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 5);
     }
 }
