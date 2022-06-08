@@ -105,6 +105,9 @@ public class JunglePlayerBehaviour : AgentBehaviour
     {
         Steering steering = new Steering();
         input = (player == 2) ? PlayerSettings.input1 : PlayerSettings.input2;
+        if(player == 3){
+            input = 2;
+        }
         float horizontal = 0;
         float vertical = 0;
         //print(string.Format("Keyboard Player {0} is active : {1}", player, activeKey));
