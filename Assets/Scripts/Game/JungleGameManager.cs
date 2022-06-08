@@ -36,6 +36,11 @@ public class JungleGameManager : MonoBehaviour
         //var shuffledTags = tagsTable.OrderBy(a => rng.Next()).ToList();
         for(int i = 0; i < 3; ++i){
             players[i].tag = array[i];
+            if(players[i].GetComponent<JunglePlayerBehaviour>() == null){
+                players[i].GetComponent<StupidAnimalBehaviour>().visualEffectSet = false;
+            }else{
+                players[i].GetComponent<JunglePlayerBehaviour>().visualEffectSet = false;
+            }
         }
     }
 

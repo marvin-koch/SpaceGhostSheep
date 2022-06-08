@@ -2519,6 +2519,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -9
       objectReference: {fileID: 0}
+    - target: {fileID: 3657785916395057768, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
+      propertyPath: byPriority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3996232962186901251, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
       propertyPath: paper
       value: 0
@@ -4463,6 +4467,7 @@ MonoBehaviour:
   slothIsLazy: 0
   stamina: 0
   slider: {fileID: 1411602138}
+  visualEffectSet: 0
   player: 2
 --- !u!114 &1564360446
 MonoBehaviour:
@@ -4477,7 +4482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
-  priority: 1
+  priority: 2
   enableRaycast: 0
   distanceRaycast: 5
   layerMask:
@@ -4770,6 +4775,7 @@ MonoBehaviour:
   slothIsLazy: 0
   stamina: 0
   slider: {fileID: 642431109}
+  visualEffectSet: 0
   player: 1
 --- !u!114 &1653094396
 MonoBehaviour:
@@ -4784,7 +4790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
-  priority: 1
+  priority: 2
   enableRaycast: 0
   distanceRaycast: 5
   layerMask:
@@ -6248,6 +6254,7 @@ MonoBehaviour:
   long_pressing: 0
   slothIsLazy: 0
   slider: {fileID: 2084151210}
+  visualEffectSet: 0
   stamina: 0
 --- !u!114 &2115442782
 MonoBehaviour:
@@ -6276,7 +6283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
-  priority: 1
+  priority: 2
   enableRaycast: 0
   distanceRaycast: 5
   layerMask:
@@ -6289,6 +6296,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 927323289}
     m_Modifications:
+    - target: {fileID: 2364173123880399170, guid: d44936f6062330e28ab4d37456de1881, type: 3}
+      propertyPath: byPriority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3040563576298773591, guid: d44936f6062330e28ab4d37456de1881, type: 3}
       propertyPath: m_Name
       value: Player1

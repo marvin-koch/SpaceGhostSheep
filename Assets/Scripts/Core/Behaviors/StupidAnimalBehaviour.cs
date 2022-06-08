@@ -18,8 +18,11 @@ public class StupidAnimalBehaviour : AgentBehaviour
 
     public bool slothIsLazy = false;
     public Slider slider;
+    public bool visualEffectSet = false;
+
 
     public float stamina = 0;
+
 
     float timeOnTouch = 0;
     bool touchedPrey = false;
@@ -32,7 +35,10 @@ public class StupidAnimalBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
+         if(!Timer.paused && !visualEffectSet){
+            this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
+            visualEffectSet = true;
+        }
         if (this.gameObject.CompareTag("Monkey")){
             stamina = 0;
             slider.value = 15 -stamina;

@@ -10,6 +10,7 @@ public class GhostSheepBehavior : AgentBehaviour
     public AudioSource ghost;
     private bool hastStarted = true;
     private bool alreadyConnected = false;
+    
     public void Start()
     {
         float startTime = PlayerSettings.time;

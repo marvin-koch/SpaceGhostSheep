@@ -25,6 +25,8 @@ public class JunglePlayerBehaviour : AgentBehaviour
 
     float timeOnTouch = 0;
     bool touchedPrey = false;
+    public bool visualEffectSet = false;
+
 
     public int player;
     int input = 0;
@@ -37,8 +39,12 @@ public class JunglePlayerBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //Set Color
-        this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
+        if(!Timer.paused && !visualEffectSet){
+            this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
+            visualEffectSet = true;
+        }
         if (this.gameObject.CompareTag("Monkey")){
             stamina = 0;
             slider.value = 15 -stamina;
@@ -92,6 +98,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
             print("why are we here ?");
         }
         
+        
     }
 
     public override Steering GetSteering()
@@ -138,12 +145,12 @@ public class JunglePlayerBehaviour : AgentBehaviour
                     direction = Vector3.zero;
                 }
                 steering.linear = direction * agent.maxAccel;
-                steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
-                linear, agent.maxAccel));
+                steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
+                Debug.Log("WTF");
             }
 
         }
-       
+        Debug.Log(steering.linear);
         return steering;
     }
 

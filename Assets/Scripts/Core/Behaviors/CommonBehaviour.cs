@@ -6,6 +6,7 @@ public class CommonBehaviour : AgentBehaviour
 {
     Color RING_COLOR = Color.green;
 
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,9 @@ public class CommonBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
+    */
 
     public GameObject FindCurrentEnemy()
     {
