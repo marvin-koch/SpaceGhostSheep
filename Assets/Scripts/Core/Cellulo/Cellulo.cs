@@ -506,7 +506,7 @@ public class Cellulo
     /// </param>
     public void SetVisualEffect(long effect, long r, long g, long b, long value)
     {
-        //Debug.Log(id.ToString() + " SetVisualEffect");
+        Debug.Log(id.ToString() + " SetVisualEffect");
         if (id == 0)
         {
             Debug.LogWarning("Robot is broken (connection to pool failed). Cannot do API call");

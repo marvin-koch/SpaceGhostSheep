@@ -150,7 +150,7 @@ public class JunglePlayerBehaviour : AgentBehaviour
             }
 
         }
-        Debug.Log(steering.linear);
+        //Debug.Log(steering.linear);
         return steering;
     }
 

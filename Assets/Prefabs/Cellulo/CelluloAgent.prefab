@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 3040563576298773591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1890607, y: 1.1890607, z: 1.1890607}
+  m_LocalScale: {x: 3.3670034, y: 3.3670034, z: 3.3670034}
   m_Children:
   - {fileID: 3029295046865927939}
   - {fileID: 3627468794508539164}
@@ -398,6 +398,7 @@ MonoBehaviour:
   blendWeight: 0
   byPriority: 1
   isConnected: 0
+  updateTheta: 1
   isMoved: 1
   simulatedTouch: 740000007200000066000000760000006200000068000000
   ledColorWhenTouched: {r: 1, g: 1, b: 1, a: 1}
