@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Threading;
 /**
 	This class is the implementation of the timer used in the game and how it is handled in it
 */
@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     public GameManager gameManager;
 
     public static bool paused = true;
+    public GameObject[] players;
 
     public void Awake() {
         initTimerValue = Time.time;
@@ -51,8 +52,19 @@ public class Timer : MonoBehaviour
                 {
                     GameObject root = this.transform.parent.gameObject.transform.parent.gameObject;
                     GameObject cellulos = root.transform.GetChild(1).gameObject;
-                    Debug.Log("child : " + cellulos.name);
                     global_variables.score1 = cellulos.transform.GetChild(0).gameObject.GetComponent<public_variables>().score;
+                    global_variables.score2 = cellulos.transform.GetChild(1).gameObject.GetComponent<public_variables>().score;
+                    global_variables.score3 = cellulos.transform.GetChild(2).gameObject.GetComponent<public_variables>().score;
+
+
+                    int highest_score = Mathf.Max(global_variables.score1, global_variables.score2, global_variables.score3);
+                    paused = true;
+                    foreach (GameObject player in players) {
+                        bool isWinner = (player.GetComponent<public_variables>().score == highest_score) ? true : false;
+                        Debug.Log(isWinner);
+                        player.GetComponent<CommonBehaviour>().SetEndGameColor(isWinner);
+                    }
+                    Thread.Sleep(7000);
                     SceneManager.LoadScene(2);
                     running = false;
                 }

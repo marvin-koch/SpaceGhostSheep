@@ -7,6 +7,7 @@ public class JungleGameManager : MonoBehaviour
     public GameObject jungleGem;
     public GameObject[] players;
     public float gemTime = 45f;
+    public static int gems = 0;
     public string[] tagsTable = {"Monkey", "Toucan", "Sloth"};
 
     void Start()
@@ -15,8 +16,9 @@ public class JungleGameManager : MonoBehaviour
         InvokeRepeating("instantiateGem", 30f, gemTime);
     }
 
-    static string[] shuffle(string[] array)
+    static void shuffle(string[] array)
     {
+        /**
         int p = array.Length;
         for (int n = p-1; n > 0 ; n--)
         {
@@ -27,15 +29,24 @@ public class JungleGameManager : MonoBehaviour
             array[n] = t;
         }
         return array;
+        */
+
+        var t0 = array[0];
+        var t1 = array[1];
+        var t2 = array[2];
+
+        array[0] = t2;
+        array[1] = t0;
+        array[2] = t1;
     }
 
     public void assignRoles()
     {
-        var array = shuffle(tagsTable);
+        shuffle(tagsTable);
         //var rng = new System.Random(); //burkina faso
         //var shuffledTags = tagsTable.OrderBy(a => rng.Next()).ToList();
         for(int i = 0; i < 3; ++i){
-            players[i].tag = array[i];
+            players[i].tag = tagsTable[i];
             if(players[i].GetComponent<JunglePlayerBehaviour>() == null){
                 players[i].GetComponent<StupidAnimalBehaviour>().visualEffectSet = false;
             }else{
@@ -47,9 +58,23 @@ public class JungleGameManager : MonoBehaviour
     public void instantiateGem() {
         if (!Timer.paused) {
             GameObject clone = Instantiate(jungleGem);
+            gems += 1;
+            for(int i = 0; i < 3; ++i){
+                players[i].tag = tagsTable[i];
+                if(players[i].GetComponent<JunglePlayerBehaviour>() == null){
+                    players[i].GetComponent<StupidAnimalBehaviour>().visualEffectSet = false;
+                }else{
+                    players[i].GetComponent<JunglePlayerBehaviour>().visualEffectSet = false;
+                }
+            }
             float x = 14.49f;
             float z = -10.23f;
             clone.transform.SetPositionAndRotation(new Vector3(x, 0, z), Quaternion.identity);
         }
     }
+
+    public static void endOfGame() {
+        
+    }
+  
 }

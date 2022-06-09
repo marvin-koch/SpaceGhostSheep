@@ -59,9 +59,9 @@ public class CommonBehaviour : AgentBehaviour
         Color color = Color.white;
         switch (this.gameObject.tag)
         {
-            case "Monkey": color = new Color(1f, 0.5f, 0f);
+            case "Monkey": color = /** new Color(1f, 0.5f, 0f); */ Color.red;
                 break;
-            case "Sloth": color = Color.black;
+            case "Sloth": color = Color.blue;
                 break;
             case "Toucan": color = Color.yellow;
                 break;
@@ -80,11 +80,21 @@ public class CommonBehaviour : AgentBehaviour
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 0);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 1);
         this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, self, 2);
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 3);
-    
-        VisualEffect effect = blinking ? VisualEffect.VisualEffectAlertSingle : VisualEffect.VisualEffectConstSingle;
-        this.agent.SetVisualEffect(effect, RING_COLOR, 4);
-    
-        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 5);
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 4);
+
+        
+        //VisualEffect effect = (JungleGameManager.gems > 0) ? VisualEffect.VisualEffectAlertSingle : VisualEffect.VisualEffectConstSingle;
+        Color gemColor = (JungleGameManager.gems > 0) ? Color.white : Color.clear;
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, gemColor, 3);
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, gemColor, 5);
+
+        
+
+        //this.agent.SetVisualEffect(VisualEffect.VisualEffectConstSingle, prey, 5);
+    }
+
+    public void SetEndGameColor(bool winner) {
+        Color color = (winner) ? Color.green : Color.red;
+        this.agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, color, 0);
     }
 }

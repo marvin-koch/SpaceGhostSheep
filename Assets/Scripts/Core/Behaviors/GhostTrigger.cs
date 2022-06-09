@@ -20,7 +20,6 @@ public class GhostTrigger : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         
         if (this.gameObject.CompareTag("Ghost") && other.gameObject.CompareTag("Player")) {
-            Debug.Log(other.transform.parent.gameObject.name + " collides.");
             --other.gameObject.GetComponent<public_variables>().score;
             lostPoint.Play();
         }

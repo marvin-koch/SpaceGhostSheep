@@ -1480,6 +1480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 687426543}
   gameManager: {fileID: 0}
+  players:
+  - {fileID: 1564360438}
+  - {fileID: 1653094388}
+  - {fileID: 2115442779}
 --- !u!114 &514567234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4905,6 +4909,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemTaken: {fileID: 2010602660}
+  players:
+  - {fileID: 1653094388}
+  - {fileID: 1564360438}
+  - {fileID: 2115442779}
 --- !u!1 &1681703054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6254,8 +6262,8 @@ MonoBehaviour:
   long_pressing: 0
   slothIsLazy: 0
   slider: {fileID: 2084151210}
-  visualEffectSet: 0
   stamina: 0
+  visualEffectSet: 0
 --- !u!114 &2115442782
 MonoBehaviour:
   m_ObjectHideFlags: 0

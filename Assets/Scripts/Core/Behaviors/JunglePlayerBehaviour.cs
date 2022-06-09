@@ -146,11 +146,9 @@ public class JunglePlayerBehaviour : AgentBehaviour
                 }
                 steering.linear = direction * agent.maxAccel;
                 steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
-                Debug.Log("WTF");
             }
 
         }
-        //Debug.Log(steering.linear);
         return steering;
     }
 

@@ -18,10 +18,9 @@ public class StupidAnimalBehaviour : AgentBehaviour
 
     public bool slothIsLazy = false;
     public Slider slider;
-    public bool visualEffectSet = false;
-
 
     public float stamina = 0;
+    public bool visualEffectSet = false;
 
 
     float timeOnTouch = 0;
@@ -35,10 +34,13 @@ public class StupidAnimalBehaviour : AgentBehaviour
     // Update is called once per frame
     void Update()
     {
-         if(!Timer.paused && !visualEffectSet){
+        //this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
+          //Set Color
+        if(!Timer.paused && !visualEffectSet){
             this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
             visualEffectSet = true;
         }
+        /**
         if (this.gameObject.CompareTag("Monkey")){
             stamina = 0;
             slider.value = 15 -stamina;
@@ -91,16 +93,17 @@ public class StupidAnimalBehaviour : AgentBehaviour
         } else {
             print("Wtf why are we here ?");
         }
+        */
     }
     
     public override Steering GetSteering()
     {
         Steering steering = new Steering();
+        Vector3 directionOfMovement = Vector3.zero;
 
         if(!Timer.paused) {
 
             GameObject me = this.gameObject;
-            Vector3 directionOfMovement = Vector3.zero;
 
             if (Distance(this.GetComponent<CommonBehaviour>().FindCurrentEnemy()) < 6.0)
             {
@@ -111,7 +114,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
                 directionOfMovement += this.GetComponent<CommonBehaviour>().FindCurrentPrey().transform.position - me.transform.position;
             }
 
-            steering.linear = directionOfMovement * (agent.maxAccel - 1);
+            steering.linear = directionOfMovement * (agent.maxAccel - 2);
             steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.linear, agent.maxAccel));
         }
         return steering;

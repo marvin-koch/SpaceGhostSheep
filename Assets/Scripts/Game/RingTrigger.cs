@@ -19,7 +19,6 @@ public class RingTrigger : MonoBehaviour
      void OnTriggerEnter(Collider other){
          
         if (other.transform.parent.gameObject.CompareTag("Sheep")) {
-            Debug.Log(other.transform.parent.gameObject.name + " triggers.");
             GameObject[] players = other.GetComponentInParent<GhostSheepBehavior>().players;
             Vector3 sheepPosition = this.gameObject.transform.position;
             if (Vector3.Distance(players[0].transform.position, sheepPosition) < Vector3.Distance(players[1].transform.position, sheepPosition)) {
