@@ -18,7 +18,6 @@ public class JungleGameManager : MonoBehaviour
 
     static void shuffle(string[] array)
     {
-        /**
         int p = array.Length;
         for (int n = p-1; n > 0 ; n--)
         {
@@ -28,9 +27,9 @@ public class JungleGameManager : MonoBehaviour
             array[r] = array[n];
             array[n] = t;
         }
-        return array;
-        */
+        //return array;
 
+        /**
         var t0 = array[0];
         var t1 = array[1];
         var t2 = array[2];
@@ -38,11 +37,22 @@ public class JungleGameManager : MonoBehaviour
         array[0] = t2;
         array[1] = t0;
         array[2] = t1;
+        */
     }
 
+  
+    public void Shuffle(string[] array) {
+        for (int i = 0; i < array.Length; i++) {
+            int rnd = Random.Range(0, array.Length);
+            string tempGO = array[rnd];
+            array[rnd] = array[i];
+            array[i] = tempGO;
+        }
+    }
     public void assignRoles()
     {
-        shuffle(tagsTable);
+        //shuffle(tagsTable);
+        Shuffle(tagsTable);
         //var rng = new System.Random(); //burkina faso
         //var shuffledTags = tagsTable.OrderBy(a => rng.Next()).ToList();
         for(int i = 0; i < 3; ++i){
