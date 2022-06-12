@@ -8,8 +8,8 @@ public class JunglePlayerBehaviour : AgentBehaviour
 {
 
     public bool long_pressing;
-    float MONKEY_TOUCH_TIME = 2;
-    float TOUCAN_TOUCH_TIME = 2;
+    float MONKEY_TOUCH_TIME = 3;
+    float TOUCAN_TOUCH_TIME = 4;
     float SLOTH_TOUCH_TIME = 2;
 
     Color MONKEY_COLOR = new Color(1f, 0.5f, 0f); //brown

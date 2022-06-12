@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class StupidAnimalBehaviour : AgentBehaviour
 {
     public bool long_pressing;
-    float MONKEY_TOUCH_TIME = 2;
-    float TOUCAN_TOUCH_TIME = 2;
+    float MONKEY_TOUCH_TIME = 3;
+    float TOUCAN_TOUCH_TIME = 4;
     float SLOTH_TOUCH_TIME = 2;
 
     Color MONKEY_COLOR = new Color(1f, 0.5f, 0f); //brown
@@ -40,7 +40,6 @@ public class StupidAnimalBehaviour : AgentBehaviour
             this.GetComponent<CommonBehaviour>().SetColor(this.gameObject, false);
             visualEffectSet = true;
         }
-        /**
         if (this.gameObject.CompareTag("Monkey")){
             stamina = 0;
             slider.value = 15 -stamina;
@@ -52,7 +51,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
             }
 
             if(stamina >= 10){
-                this.agent.MoveOnMud();
+                //this.agent.MoveOnMud();
                 
             }
             
@@ -68,6 +67,7 @@ public class StupidAnimalBehaviour : AgentBehaviour
                 if(!slothIsLazy){
                     var rng = new System.Random();
                     int mode = rng.Next(0,2);
+                    /**
                     switch(mode){
                         case 0:
                             this.agent.MoveOnStone();
@@ -81,19 +81,19 @@ public class StupidAnimalBehaviour : AgentBehaviour
                         default:
                             break;
                     }
+                    */
                     slothIsLazy = true;
                 }
             }
             
             if(stamina >= 20 && slothIsLazy){
-                this.agent.MoveOnMud();
+                //this.agent.MoveOnMud();
                 stamina = 0;
                 slothIsLazy = false;
             }
         } else {
             print("Wtf why are we here ?");
         }
-        */
     }
     
     public override Steering GetSteering()

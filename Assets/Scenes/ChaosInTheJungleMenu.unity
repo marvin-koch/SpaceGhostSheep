@@ -3606,20 +3606,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "EACH robot will be assigned a role which is associated with a colour.
-    the robot which is the monkey will be orange, the toucan will be yellow and the
-    sloth will be grey. The sloth will chase the monkey, the monkey will chase the
-    toucan and the toucan the sloth. to win points, the player must touch its prey
-    for a certain amount of time, specific to each role. to remind the player who
-    he must chase, and the back will be the colour of the player itself. every time
-    that a  player wins a point, the players change roles. each role has certain
-    advatages and disadvatages. the toucan can fly around a map buts gets tired after
-    a certain amount of time and has to go to rest at one of the trees. the sloth
-    is slow on land but can swim in water. in addition it sometimes gets tired of
-    following the players instructions and chooses its own mode of movement for a
-    couple of seconds. the monkey moves noramlly on land, but moves slowly on water
-    because it can't swim. the player who has the most points at the end of the game
-    wins.\r"
+  m_text: "Welcome to chaos in the jungle! EACH player will be assigned a role which
+    is associated with a colour. the robot which is the monkey will be red, the toucan
+    will be yellow and the sloth will be blue. To win a point, a player must touch
+    his prey for a certain amount of time, specific to each role.The sloth will chase
+    the monkey, the monkey will chase the toucan and the toucan the sloth. Another
+    way to win a point is to collect a bonus in the middle of the map. to remind
+    the player who he must chase, the front LED will be the color of its prey and
+    the back three LEDs will be the colour of the player itself. The two remaining
+    LEDs light up when a bonus is available in the middle. every time that a player
+    wins a point, the players change roles. When playing with real cellulo, each
+    role has certain advatages and disadvatages. the toucan can fly around a map
+    buts gets tired after a certain amount of time, determined by the stamina bar,
+    and has to go to rest at one of the trees. the sloth is slow on land but is fast
+    on water because it can swim. in addition, it chooses its own mode of movement
+    for a couple of seconds when the stamina bar is empty. the monkey moves noramally
+    on land, but moves slowly on water because it can't swim. the player who has
+    the most points at the end of the game wins.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
   m_sharedMaterial: {fileID: 4424471878070282511, guid: b1c7cfd8f18354618974b6992734c30d, type: 2}
